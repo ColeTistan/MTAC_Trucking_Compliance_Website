@@ -1,0 +1,71 @@
+.state-location, .service-type{
+    padding: 2px 2px !important;
+}
+
+.map-img img{
+    width: 410px;
+    height: auto;
+    padding: 5px;
+}
+
+.service-img img{
+    width: 250px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.external-link{
+    padding: 15px 15px !important;
+}
+
+.card-img img, .card-img i{
+    padding: 15px 15px;
+    width: 100px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.link-card{
+    padding: 15px;
+    min-width: 250px;
+    min-height: auto;
+}
+
+/* Link Cards - Start */
+#drug-img{
+    padding-top: 20px;
+}
+
+#ecfr-img{
+    padding-top: 15px;
+    width: 250px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+#ecfr-body{
+    padding-top: 19px;
+}
+
+#njmvc-img{
+    padding-top: 5px;
+    width: 45%;
+}
+
+#pa-dot-img{
+    padding-top: 6px;
+}
+
+#njsp-img{
+    padding-top: 21px;
+}
+
+.form-card{
+    display: inline-block !important;
+    text-align: right;
+}
+
+/* Link Cards - End */
