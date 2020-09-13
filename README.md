@@ -6,6 +6,7 @@ This website will be developed for MTAC Trucking Compliance, a truck insurance a
 ## Languages & Frameworks used
 - HTML5
 - CSS3
+- JavaScript
 - PHP
 - Bootstrap 4
 - React.js
