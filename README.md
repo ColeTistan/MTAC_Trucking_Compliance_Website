@@ -1,4 +1,5 @@
 # MTAC Trucking Compliance LLC.
+##### Version 1.0
 
 ## Purpose
 This website will be developed for MTAC Trucking Compliance, a truck insurance agency. It will be used for clients to email about questions, concerns, and many more features.
@@ -15,4 +16,3 @@ This website will be developed for MTAC Trucking Compliance, a truck insurance a
 - a contact form that allows user to email company with questions, concerns, et cetera.
 - Integrate client-side design of website with React.
 
-##### Version 1.0
