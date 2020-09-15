@@ -33,6 +33,7 @@
     min-height: auto;
 }
 
+
 /* Link Cards - Start */
 #drug-img{
     padding-top: 20px;
@@ -66,6 +67,11 @@
 .form-card{
     display: inline-block !important;
     text-align: right;
+}
+
+.center {
+    margin: auto;
+    padding: 10px;
 }
 
 /* Link Cards - End */
