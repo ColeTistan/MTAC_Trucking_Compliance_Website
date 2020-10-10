@@ -71,7 +71,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <h6 style="margin-bottom: 0px;" class="navbar-text">
-            Our Goal is providing Guidance and Solutions to ensure your Carrier’s USDOT Compliance and Safety.
+            Providing guidance and solutions to ensure your Carrier is safe and USDOT compliant.
         </h6>
         <div class="collapse navbar-collapse" id="navbar-content">
             <ul class="navbar-nav ml-auto">
@@ -203,9 +203,6 @@
                 </ul>
             </div>
             <!--Grid column-->
-            <div style="margin-top: 16px; width: 40%;" class="alert alert-info text-center mx-auto">
-                Contact Form is currently under construction
-            </div>
         </div>
     </div>
 </main>
