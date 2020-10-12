@@ -65,24 +65,25 @@
 <body>
 <!-- start header -->
 <header class="header">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark text-center">
+    <!-- Navbar - start -->
+    <nav class="navbar navbar-expand-md navbar-dark text-center">
         <a href="index.html"><img id="company-logo" src="../images/company_logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h6 style="margin-bottom: 0px;" class="navbar-text">
+        <h6 class="navbar-text mission-statement">
             Providing guidance and solutions to ensure your Carrier is safe and USDOT compliant.
         </h6>
         <div class="collapse navbar-collapse" id="navbar-content">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+        <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
                     <a href="index.html" class="nav-link">
                         Home
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="about.html" class="nav-link">
-                        About Us
+                        About
                     </a>
                 </li>
                 <li class="nav-item">
@@ -95,16 +96,16 @@
                         Links
                     </a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a href="contact.php" class="nav-link">
-                        Contact Us
+                        Contact
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
+    <!-- navbar - end -->
 </header>
-<!-- end header -->
 <br>
 <!-- start main -->
 <main>

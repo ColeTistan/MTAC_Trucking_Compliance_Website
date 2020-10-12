@@ -1,9 +1,29 @@
+.mission-statement{
+    margin-bottom: 0px;
+    color: #fff !important;
+}
+
+.navbar-nav .nav-item .nav-link{
+    color: #fff;
+}
+
+.navbar-nav .nav-item .nav-link:hover{
+    color: #ffc000;
+}
+
+.navbar{
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    margin-bottom: 15px;
+}
+/* Navbar and slider - end */
+
 .state-location, .service-type{
     padding: 2px 2px !important;
 }
 
 .map-img img{
-    width: 410px;
+    width: 350px;
     height: auto;
     padding: 5px;
 }
@@ -73,5 +93,7 @@
     margin: auto;
     padding: 10px;
 }
+
+/* Link Cards - End */
 
 /* Link Cards - End */

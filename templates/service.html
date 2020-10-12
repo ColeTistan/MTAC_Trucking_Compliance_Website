@@ -17,27 +17,28 @@
 <body>
 <!-- start header -->
 <header class="header">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark text-center">
+    <!-- Navbar - start -->
+    <nav class="navbar navbar-expand-md navbar-dark text-center">
         <a href="index.html"><img id="company-logo" src="../images/company_logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h6 style="margin-bottom: 0px;" class="navbar-text">
+        <h6 class="navbar-text mission-statement">
             Providing guidance and solutions to ensure your Carrier is safe and USDOT compliant.
         </h6>
         <div class="collapse navbar-collapse" id="navbar-content">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a href="index.html" class="nav-link">
                         Home
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="about.html" class="nav-link">
-                        About Us
+                        About
                     </a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a href="service.html" class="nav-link">
                         Services
                     </a>
@@ -49,15 +50,14 @@
                 </li>
                 <li class="nav-item">
                     <a href="contact.php" class="nav-link">
-                        Contact Us
+                        Contact
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
+    <!-- navbar - end -->
 </header>
-<!-- end header -->
-<br>
 <!-- start main -->
 <main>
 
@@ -84,9 +84,9 @@
 
         <!-- card deck - States serviced -->
         <div style="padding: 15px 15px" class="card-deck mt-4 d-flex justify-content-center">
-            <div style="padding: 15px 15px;" class="card bg-light col-sm-5">
-                <div class="card-body" id="service-location">
-                    <div style="text-align: center;" class="fa-icon">
+            <div class="card bg-light col-sm-5">
+                <div class="card-body d-flex flex-column justify-content-between" id="service-location">
+                    <div class="fa-icon text-center">
                         <i class="fas fa-map-marker-alt fa-4x"></i>
                     </div>
                     <br>
@@ -139,12 +139,11 @@
             </div>
 
             <!-- service listing -->
-            <div style="padding: 15px 15px;" class="card bg-light col-sm-5">
-                <div class="card-body" id="service-box">
-                    <div style="text-align: center;" class="fa-icon">
+            <div class="card bg-light col-sm-5">
+                <div class="card-body d-flex flex-column justify-content-between" id="service-box">
+                    <div class="fa-icon text-center">
                         <i class="fas fa-wrench fa-4x"></i>
                     </div>
-                    <br>
                     <h5 class="card-title text-center">Services Provided</h5>
                     <ul class="service-list" id="service-list">
                         <li class="service-type">
@@ -177,7 +176,7 @@
                         <li class="service-type">
                             Guidance for USDOT and State Statutes
                         </li>
-                        <li style="padding-bottom: 8px;" class="service-type">
+                        <li class="service-type">
                             Data Queries / Challenges
                         </li>
                     </ul>

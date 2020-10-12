@@ -15,14 +15,17 @@
     <title>Home - M-Tac Trucking Compliance</title>
 </head>
 <body>
+
 <!-- start header -->
 <header class="header">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark text-center">
+
+    <!-- Navbar - start -->
+    <nav class="navbar navbar-expand-md navbar-dark text-center">
         <a href="index.html"><img id="company-logo" src="../images/company_logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h6 style="margin-bottom: 0px;" class="navbar-text">
+        <h6 class="navbar-text mission-statement">
             Providing guidance and solutions to ensure your Carrier is safe and USDOT compliant.
         </h6>
         <div class="collapse navbar-collapse" id="navbar-content">
@@ -34,7 +37,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="about.html" class="nav-link">
-                        About Us
+                        About
                     </a>
                 </li>
                 <li class="nav-item">
@@ -49,76 +52,78 @@
                 </li>
                 <li class="nav-item">
                     <a href="contact.php" class="nav-link">
-                        Contact Us
+                        Contact
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
+    <!-- navbar - end -->
+
 </header>
-<!-- end header -->
-<br>
-<!-- start main -->
-<main>
-    
-<!-- index page - slideshow -->
+<!-- header - end -->
 <div class="container">
-    <div class="col-sm-12">
-        <div id="index-carousel" class="carousel slide" data-ride="carousel">
+    <div class="col-sm-">
+        <div class="carousel slide" data-ride="carousel" id="index-carousel">
             <ol class="carousel-indicators">
-                <li data-target="#index-carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#index-carousel" data-slide-to="1"></li>
-                <li data-target="#index-carousel" data-slide-to="2"></li>
-                <li data-target="#index-carousel" data-slide-to="3"></li>
-                <li data-target="#index-carousel" data-slide-to="4"></li>
+                <li class="active" data-slide-to="0" data-target="#index-carousel"></li>
+                <li data-slide-to="1" data-target="#index-carousel"></li>
+                <li data-slide-to="2" data-target="#index-carousel"></li>
+                <li data-slide-to="3" data-target="#index-carousel"></li>
+                <li data-slide-to="4" data-target="#index-carousel"></li>
             </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="../images/Post_Crash.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="../images/inspection_2.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="../images/presentation_1.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="../images/njsp_service.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="../images/inspection_5.jpg">
-                </div>
+        
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="../images/Post_Crash.jpg" />
             </div>
-            <a href="#index-carousel" class="carousel-control-prev" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a href="#index-carousel" class="carousel-control-next" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
+
+            <div class="carousel-item">
+                <img class="d-block w-100" src="../images/inspection_2.jpg" />
+            </div>
+
+            <div class="carousel-item">
+                <img class="d-block w-100" src="../images/presentation_1.jpg" />
+            </div>
+
+            <div class="carousel-item">
+                <img class="d-block w-100" src="../images/njsp_service.jpg" />
+            </div>
+
+            <div class="carousel-item">
+                <img class="d-block w-100" src="../images/inspection_5.jpg" />
+            </div>
+        </div>
+            <a class="carousel-control-prev" data-slide="prev" href="#index-carousel" role="button">
+                <span class="sr-only">Previous</span> 
+            </a> 
+            <a class="carousel-control-next" data-slide="next" href="#index-carousel" role="button"> 
+                <span class="sr-only">Next</span> 
             </a>
         </div>
     </div>
-    <br>
-    <!-- index page - info boxes -->
+</div>
+<br />
 
     <!-- service box -->
-    <div class="card-deck">
-        <div class="card bg-light" id="service-box">
-            <br>
-            <div style="display: inline-block; text-align: center;" class="card-img">
+
+<div class="row justify-content-center">
+    <div class="col-sm-3">
+        <div class="card bg-light h-100" id="service-box">
+        <br>
+            <div class="card-img">
                 <i class="fas fa-wrench fa-4x"></i>
             </div> 
-            <div class="card-body d-flex flex-column">
-                <ul style="display: inline-block;" class="service-list" id="service-list">
+            <div class="card-body d-flex flex-column justify-content-between">
+                <ul class="service-list" id="service-list">
                     <li class="service-type">
-                        Safety Audit
+                        Safety Audits
                     </li>
                     <li class="service-type">
-                        CSA Safety Rating Improvement Strategies
+                        Strategies to improve CSA Safety Rating
                     </li>
                     <li class="service-type">
-                        Annual Vehicle Inspection
+                        Annual Vehicle Inspections
                     </li>
                     <li class="service-type">
                         Post Crash Inspections & Guidance
@@ -127,49 +132,53 @@
                         Driver File Management
                     </li>
                 </ul>
-                <div style="display:flex">
-                    <a href="service.html" class="btn bg-primary text-light btn-block">Complete Services Provided</a>
+                <div class="d-flex">
+                    <a href="service.html" class="btn bg-primary text-light btn-block">All Services</a>
                 </div>
             </div>
         </div>
+    </div>
 
         <!-- about us box -->
-        <div class="card bg-light" id="about-box">
-            <br>
-            <div style="display: inline-block; text-align: center;" class="card-img">
+    <div class="col-sm-3">
+        <div class="card bg-light h-100" id="about-box">  
+        <br>
+            <div class="card-img">
                 <i class="fas fa-users fa-4x"></i>
             </div>
-            <div class="card-body d-flex flex-column">
+            <div class="card-body d-flex flex-column justify-content-between">
                 <p id="about-card" class="card-text">
-                    Interested in learning more about our company? 
-                    Feel free to view our about us page to see our mission,
-                    and learn about our staff! 
+                    Learn more about our story,
+                    mission, and meet our staff.
                 </p>
-                <a href="about.html" class="btn bg-primary text-light btn-block mt-auto">About Us</a>
+                <div class="d-flex">
+                    <a href="about.html" class="btn bg-primary text-light btn-block mt-auto">About Us</a>
+                </div>    
             </div>
         </div>
+    </div>
 
         <!-- contact box -->
-        <div class="card bg-light" id="contact-box">
-            <br>
-            <div style="display: inline-block; text-align: center;" class="card-img">
+    <div class="col-sm-3">
+        <div class="card bg-light h-100" id="contact-box">
+        <br>
+            <div class="card-img">
                 <i class="fas fa-phone fa-4x"></i>
             </div>
-            <div id="contact-card" class="card-body d-flex flex-column">
-                <p>Please contact us for more information on our
-                   services and find out how we can assist with
-                   your specific needs.
+            <div id="contact-card" class="card-body d-flex flex-column justify-content-between">
+                <p>
+                    Contact us for more information
+                    about our services and how we 
+                    can improve your fleet’s safety.
                 </p>
-                <a href="contact.php" class="btn bg-primary text-light btn-block mt-auto">Contact Us</a>
+                <div class="d-flex">
+                    <a href="contact.php" class="btn bg-primary text-light btn-block mt-auto">Contact Us</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
-</main>
 <!-- end main -->
-
-<br>
-<hr>
 
 <!-- start Footer - Bootstrap 4 -->
 <footer class="page-footer font-small blue pt-4">
