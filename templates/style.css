@@ -11,11 +11,6 @@
     color: #ffc000;
 }
 
-.navbar{
-    width: 100%;
-    background-color: rgba(0,0,0,0.7);
-    margin-bottom: 15px;
-}
 /* Navbar and slider - end */
 
 .state-location, .service-type{
