@@ -13,6 +13,7 @@ This website will be developed for MTAC Trucking Compliance, a truck insurance a
 - React.js
 
 ## Future Additions
-- a contact form that allows user to email company with questions, concerns, et cetera.
-- Integrate client-side design of website with React.
+- PHP will be replaced by NodeJS using EmailJS
+- React will be integrated on the website.
+- Each section of the website will be in single page components.
 
