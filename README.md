@@ -10,7 +10,7 @@ This website will be developed for MTAC Trucking Compliance, a truck insurance a
 - JavaScript
 - PHP
 - Bootstrap 4
-- React.js
+- React or Vue
 
 ## Future Additions
 - PHP will be replaced by NodeJS using EmailJS
