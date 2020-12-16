@@ -14,6 +14,6 @@ This website will be developed for MTAC Trucking Compliance, a truck insurance a
 
 ## Future Additions
 - PHP will be replaced by NodeJS using EmailJS
-- React will be integrated on the website.
+- React or Vue will be integrated on the website.
 - Each section of the website will be in single page components.
 
