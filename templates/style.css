@@ -48,11 +48,30 @@
     min-height: auto;
 }
 
+/* .slide-container {
+    margin: auto;
+    width: 45%;
+} */
+
+/* SlideShow - start */
+.carousel-inner {
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+/* SlideShow - end */
+
+/* mobile-responsive - start */
+@media screen and (max-width: 784px) {
+    .carousel-inner {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+}
+
 
 /* Link Cards - Start */
-#drug-img{
-    padding-top: 20px;
-}
 
 #ecfr-img{
     padding-top: 15px;
@@ -88,6 +107,11 @@
     margin: auto;
     padding: 10px;
 }
+
+/* .carousel {
+    width: 750px;
+    height: 560px;
+} */
 
 /* Link Cards - End */
 
