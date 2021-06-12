@@ -1,57 +1,6 @@
-.mission-statement{
-    margin-bottom: 0px;
-    color: #fff !important;
-}
-
-.navbar-nav .nav-item .nav-link{
-    color: #fff;
-}
-
 .navbar-nav .nav-item .nav-link:hover{
     color: #ffc000;
 }
-
-/* Navbar and slider - end */
-
-.state-location, .service-type{
-    padding: 2px 2px !important;
-}
-
-.map-img img{
-    width: 350px;
-    height: auto;
-    padding: 5px;
-}
-
-.service-img img{
-    width: 250px;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-}
-
-.external-link{
-    padding: 15px 15px !important;
-}
-
-.card-img img, .card-img i{
-    padding: 15px 15px;
-    width: 100px;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-}
-
-.link-card{
-    padding: 15px;
-    min-width: 250px;
-    min-height: auto;
-}
-
-/* .slide-container {
-    margin: auto;
-    width: 45%;
-} */
 
 /* SlideShow - start */
 .carousel-inner {
@@ -69,50 +18,3 @@
       margin-right: auto;
     }
 }
-
-
-/* Link Cards - Start */
-
-#ecfr-img{
-    padding-top: 15px;
-    width: 250px;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-}
-
-#ecfr-body{
-    padding-top: 19px;
-}
-
-#njmvc-img{
-    padding-top: 5px;
-    width: 45%;
-}
-
-#pa-dot-img{
-    padding-top: 6px;
-}
-
-#njsp-img{
-    padding-top: 21px;
-}
-
-.form-card{
-    display: inline-block !important;
-    text-align: right;
-}
-
-.center {
-    margin: auto;
-    padding: 10px;
-}
-
-/* .carousel {
-    width: 750px;
-    height: 560px;
-} */
-
-/* Link Cards - End */
-
-/* Link Cards - End */
