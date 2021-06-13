@@ -10,3 +10,4 @@ const get_html_file = (file_name) => {
 
 get_html_file("header");
 get_html_file("home");
+get_html_file("about");l
