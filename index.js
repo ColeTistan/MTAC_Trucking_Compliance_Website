@@ -12,3 +12,4 @@ get_html_file("header");
 get_html_file("home");
 get_html_file("about");
 get_html_file("service");
+get_html_file("links");
