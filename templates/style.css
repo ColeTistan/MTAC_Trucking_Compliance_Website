@@ -10,6 +10,11 @@
   
 /* SlideShow - end */
 
+.card-image {
+  width: 150px;
+  height: auto;
+}
+
 /* mobile-responsive - start */
 @media screen and (max-width: 784px) {
     .carousel-inner {

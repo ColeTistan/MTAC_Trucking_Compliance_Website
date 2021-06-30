@@ -1,175 +1,47 @@
-<html lang="en"><head><meta charset="utf-8">
-	<link href="../images/favicon.ico" rel="shortcut icon" type="image/png">
-	<link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" rel="stylesheet">
-	<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
-	<link href="style.css" rel="stylesheet"><div id="powrIframeLoader">­<style> .powrLoaded iframe { visibility: hidden; } </style></div><script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script><meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Contact - M-Tac Trucking Compliance</title>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script><script type="text/javascript">
-        (function() {
-            emailjs.init("user_JnEqzft29F1qGs9o3lnw5");
-        })();
-    </script><script src="index.js"></script>
-</head>
-<body cz-shortcut-listen="true">
-<!-- start header -->
-<header class="header">
-
-    <!-- Navbar - start -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark text-center">
-        <a href="index.html"><img id="company-logo" src="../images/company_logo.png"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <h6 class="navbar-text text-center mission-statement">
-            Providing guidance and solutions to ensure your Carrier is safe and USDOT compliant.
-        </h6>
-        <div class="collapse navbar-collapse" id="navbar-content">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a href="index.html" class="nav-link">
-                        Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">
-                        About
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="service.html" class="nav-link">
-                        Services
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="links.html" class="nav-link">
-                        Links
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">
-                        Contact
-                    </a>
-                </li>
-            </ul>
+<div class="container">
+    <h3 class="text-center fw-bold py-3">Contact Us</h3>
+    <form class="row g-3 p-4 shadow p-3 bg-body rounded">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputEmail4">
         </div>
-    </nav>
-    <!-- navbar - end -->
-
-</header>
-<!-- header - end -->
-<p><br>
-<!-- start main --></p>
-
-<main><!-- contact information box -->
-<div class="container"><!--Contact Title heading-->
-<h2 class="font-weight-bold text-center">Contact us</h2>
-&nbsp;
-
-<div class="row"><!--Grid column-->
-<div class="col-md-9 mb-md-0 mb-5">
-<form action="" id="contact-form" name="contact-form"><!--Grid row-->
-<div class="row"><!--Grid column-->
-<div class="col-md-6">
-<div class="md-form mb-0"><input class="form-control" id="name" name="user_name" placeholder="John Doe" type="text" value=""> <label for="name">Your name</label></div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Password</label>
+          <input type="password" class="form-control" id="inputPassword4">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Address 2</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">State</label>
+          <select id="inputState" class="form-select">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="inputZip">
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Check me out
+            </label>
+          </div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+      </form>
 </div>
-<!--Grid column--><!--Grid column-->
-
-<div class="col-md-6">
-<div class="md-form mb-0"><input class="form-control" id="email" name="user_email" placeholder="doej@gmail.com" type="text" value=""> <label for="email">Your email</label></div>
-</div>
-<!--Grid column--><!--Grid column-->
-
-<div class="col-md-12">
-<div class="md-form mb-0"><input class="form-control" id="subject" name="subject_title" placeholder="Question about company" type="text" value=""> <label for="name">Subject</label></div>
-</div>
-<!--Grid column--></div>
-<!--Grid row--><!--Grid row-->
-
-<div class="row"><!--Grid column-->
-<div class="col-md-12">
-<div class="md-form"><textarea class="form-control md-textarea" id="message" name="message" placeholder="Nice to meet you!" rows="5" type="text" value=""></textarea><label for="message">Your message</label></div>
-</div>
-</div>
-<!--Grid row-->
-
-<div class="text-center text-md-left"><button class="btn btn-primary" name="submit" type="submit">Submit</button></div>
-</form>
-</div>
-<!--Grid column--><!--Grid column-->
-
-<div class="col-md-3 text-center">
-<ul class="list-unstyled mb-0">
-	<li>
-	<p>Address: P.O. Box 1118, Mullica Hill NJ 08062</p>
-	</li>
-	<li>
-	<p>(856) 430-0197</p>
-	</li>
-	<li>
-	<p>mtactruckingcompliance@gmail.com</p>
-	</li>
-</ul>
-</div>
-<!--Grid column--></div>
-</div>
-</main>
-<!-- end main -->
-
-<p></p>
-
-<hr><!-- start Footer - Bootstrap 4 -->
-<p></p>
-
-<footer class="page-footer font-small blue pt-4"><!-- Footer Links -->
-<div class="container-fluid text-center text-md-left"><!-- Grid row -->
-<div class="row"><!-- Grid column -->
-<div class="col-md-6 mt-md-0 mt-3"><!-- Content -->
-<h5 class="text-uppercase">M-Tac Trucking Compliance, LLC</h5>
-
-<ul class="list-unstyled">
-	<li>Address: P.O. Box 1118, Mullica Hill NJ 08062</li>
-	<li>Cell: (856) 430-0197</li>
-	<li>Email: mtactruckingcompliance@gmail.com</li>
-</ul>
-</div>
-<!-- Grid column -->
-
-<hr class="clearfix w-100 d-md-none pb-3"><!-- Grid column -->
-<div class="col-md-3 mb-md-0 mb-3"><!-- Links -->
-<h5 class="text-uppercase">Page Links</h5>
-
-<ul class="list-unstyled">
-	<li><a href="index.html">Home</a></li>
-	<li><a href="about.html">About Us</a></li>
-	<li><a href="service.html">Services</a></li>
-	<li><a href="links.html">Links</a></li>
-	<li><a href="contact.html">Contact</a></li>
-</ul>
-</div>
-<!-- Grid column --><!-- Grid column -->
-
-<div class="col-md-3 mb-md-0 mb-3"><!-- Links -->
-<h5 class="text-uppercase">Useful Links</h5>
-
-<ul class="list-unstyled">
-	<li><a href="https://www.fmcsa.dot.gov/">US DOT | FMCSA </a></li>
-	<li><a href="https://clearinghouse.fmcsa.dot.gov/">Drug and Alcohol Clearinghouse (DACH) </a></li>
-	<li><a href="https://ai.fmcsa.dot.gov/SMS">Safety Management System (SMS) </a></li>
-	<li><a href="https://www.ecfr.gov/cgi-bin/text-idx?SID=43ccae11163517128af67b5df6f8fb9c&amp;mc=true&amp;tpl=/ecfrbrowse/Title49/49cfrv5_02.tpl#0">Electronic Code of Federal Regulation (ECFR) </a></li>
-	<li><a href="https://www.state.nj.us/mvc/">NJ Motor Vehicle Commission </a></li>
-	<li><a href="https://www.penndot.gov/Pages/default.aspx">PA DOT </a></li>
-	<li><a href="https://www.dmv.de.gov/">DE DMV </a></li>
-	<li><a href="https://www.njsp.org/">NJ State Police </a></li>
-</ul>
-</div>
-<!-- Grid column --></div>
-<!-- Grid row --></div>
-<!-- Footer Links --><!-- Hit counter -->
-
-<div class="powr-hit-counter powrLoaded" id="d0465e39_1598232449"><iframe src="https://www.powr.io/hit-counter/u/d0465e39_1598232449#platform=bootstrap?&amp;url=http%3A%2F%2Fmtactruckingcompliance.com%2Fcontact.html" powrindex="0" width="100%" height="71px" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" style="height: 71px; transition: height 0.3s ease 0s; display: inline; visibility: visible;"></iframe></div>
-<script src="https://www.powr.io/powr.js?platform=bootstrap?"></script><!-- Hit counter --><!-- Copyright -->
-
-<div class="footer-copyright text-center py-3">Copyright © M-Tac Trucking Compliance, LLC | All Rights Reserved</div>
-<!-- Copyright --></footer>
-<!-- end Footer - Bootstrap 4 -->
-</body></html>
