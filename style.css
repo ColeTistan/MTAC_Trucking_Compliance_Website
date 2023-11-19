@@ -9,3 +9,78 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
     background-color: #ffc100;
 }
+
+header {
+    margin-bottom: 80px;
+}
+
+.navbar-nav .nav-item .nav-link:hover, .link-light:hover {
+    color: #ffc000;
+}
+
+.carousel-control {
+    width: 30%;/*put your desired width*/
+    margin-top: 150px;/*put your desired top margin*/
+} 
+
+/* SlideShow - start */
+.carousel-inner {
+    width: 50%;
+    margin: 0 auto;
+} 
+
+.carousel-control-prev {
+    margin-left:  auto;
+}
+
+.carousel-control-next {
+    margin-right: 50% auto;
+} 
+
+/* SlideShow - end */
+
+.card-image {
+    width: 150px;
+    height: auto;
+}
+
+/* mobile-responsive - start */
+@media screen and (max-width: 1040px) {
+    .carousel-inner {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .carousel-control-prev {
+        margin-left: 20vw;
+    }
+
+    .carousel-control-next {
+        margin-right: 20vw;
+    }
+
+    .carousel-outer {
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    header {
+        margin-bottom: 120px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    header {
+        margin-bottom: 150px;
+    }       
+}
+
+@media screen and (max-width: 350px) {
+    header {
+        margin-bottom: 170px;
+    }       
+}
