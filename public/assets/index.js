@@ -1,6 +1,6 @@
-// render card links dynamically in links template
+  // render card links dynamically in links template
 const renderCards = () => {
-  fetch('linkData.json').then(response => {
+  fetch('/assets/linkData.json').then(response => {
     return response.json();
   }).then(data => {
     let cardLinks = document.getElementById('card-links');
@@ -25,22 +25,4 @@ const renderCards = () => {
   })
 }
 
-// Renders HTML templates dynamically
-const get_html_file = (file_name) => {
-    fetch(`../templates/${file_name}.html`)
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.getElementById(`${file_name}`).innerHTML = data;
-  });
-}
-
-get_html_file("header");
-get_html_file("home");
-get_html_file("about");
-get_html_file("service");
-get_html_file("links");
 renderCards();
-get_html_file("contact");
-get_html_file("footer");

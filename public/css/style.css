@@ -18,6 +18,11 @@ header {
     color: #ffc000;
 }
 
+.carousel {
+    width: 50%;
+    margin: 0 auto;
+}
+
 .carousel-control {
     width: 30%;/*put your desired width*/
     margin-top: 150px;/*put your desired top margin*/
@@ -45,42 +50,29 @@ header {
 }
 
 /* mobile-responsive - start */
-@media screen and (max-width: 1040px) {
-    .carousel-inner {
+@media screen and (max-width: 768px) {
+    .carousel {
+        padding-top: 2.4rem;
         width: 100%;
         margin-left: auto;
         margin-right: auto;
     }
 }
 
-@media screen and (min-width: 1300px) {
-    .carousel-control-prev {
-        margin-left: 20vw;
-    }
-
-    .carousel-control-next {
-        margin-right: 20vw;
-    }
-
-    .carousel-outer {
-        margin-top: 200px;
+@media screen and (max-width: 425px) {
+    .carousel {
+        padding-top: 3.9rem;
     }
 }
 
-@media screen and (max-width: 900px) {
-    header {
-        margin-bottom: 120px;
+@media screen and (max-width: 375px) {
+    .carousel {
+        padding-top: 3.9rem;
     }
 }
 
-@media screen and (max-width: 650px) {
-    header {
-        margin-bottom: 150px;
-    }       
-}
-
-@media screen and (max-width: 350px) {
-    header {
-        margin-bottom: 170px;
-    }       
+@media screen and (max-width: 320px) {
+    .carousel {
+        padding-top: 5.4rem;
+    }
 }
