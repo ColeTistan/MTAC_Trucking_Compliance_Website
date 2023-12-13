@@ -1,14 +1,14 @@
-const express = require('express');
+const express = require("express");
 const viewsRouter = express.Router();
 
 require("../connect");
 
-viewsRouter.get('', (req, res) => {
-    res.render('index', { text: 'This is EJS'})
-})
+viewsRouter.get("/", (req, res) => {
+    res.render("index");
+});
 
-viewsRouter.get('/about', (req, res) => {
-    res.render('about', { text: 'About Page'})
-})
+viewsRouter.get("/login", (req, res) => {
+    res.render("login");
+});
 
 module.exports = viewsRouter;
