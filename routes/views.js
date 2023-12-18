@@ -11,4 +11,8 @@ viewsRouter.get("/login", (req, res) => {
     res.render("login");
 });
 
+viewsRouter.get("/authenticate", (req, res) => {
+    res.render("auth");
+})
+
 module.exports = viewsRouter;

@@ -12,8 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
-    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
@@ -22,7 +20,8 @@
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.1",
     "morgan": "^1.10.0",
-    "newsapi": "^2.4.1"
+    "newsapi": "^2.4.1",
+    "stytch": "^10.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
