@@ -7,7 +7,10 @@
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#navmenu"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,26 +18,55 @@
       Providing guidance and solutions to ensure your Carrier is safe and USDOT
       compliant.
     </span>
-    <div class="collapse navbar-collapse" id="navmenu">
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
       <ul class="navbar-nav text-center ms-auto">
-        <li class="nav-item">
-          <a href="/" class="nav-link">Home</a>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Pages
+          </a>
+          <ul class="dropdown-menu">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="#service" class="nav-link">Services</a>
+            </li>
+            <li class="nav-item">
+              <a href="#links" class="nav-link">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link">Contact</a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a href="/" class="nav-link">About</a>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Employee Links
+          </a>
+          <ul class="dropdown-menu">
+            <li class="nav-item">
+              <a href="/login" class="nav-link">Employee Login</a>
+            </li>
+            <li class="nav-item">
+              <a href="/logout" class="nav-link">Logout</a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a href="/" class="nav-link">Services</a>
-        </li>
-        <li class="nav-item">
-          <a href="/" class="nav-link">Links</a>
-        </li>
-        <li class="nav-item">
-          <a href="/" class="nav-link">Contact</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a href="/login" class="nav-link">Employee Log In</a>
-        </li> -->
       </ul>
     </div>
   </div>

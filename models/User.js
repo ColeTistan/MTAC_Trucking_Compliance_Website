@@ -1,22 +1,46 @@
 const mongoose = require("mongoose");
-
-const userSchema = mongoose.Schema({
+const { createHmac, randomBytes } = require("crypto");
+const userSchema = mongoose.Schema(
+  {
     username: {
-        type: String,
-        required: false,
-        min: 16,
-        max: 255,
-        unique: true
+      type: String,
+      required: false,
+      min: 16,
+      max: 255,
+      unique: true,
     },
-    email: {
-        type: String,
-        require: true,
-        min: 16,
-        max: 255,
-        unique: true
-    }
-}, {
-    timestamps: true
+    salt: {
+      type: String,
+      required: true,
+    },
+    password: {
+      type: String,
+      require: true,
+      min: 16,
+      max: 255,
+      unique: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+userSchema.pre("save", (next) => {
+  const user = this;
+
+  if (!user.isModified("password")) return;
+
+  const salt = randomBytes(16).toString();
+  const hashedPassword = createHmac("sha256", salt)
+    .update(user.password)
+    .digest("hex");
+
+  this.salt = salt;
+  this.password = hashedPassword;
+
+  next();
 });
 
-module.exports = mongoose.model('User', userSchema);
+// export user schema
+module.exports = mongoose.model("User", userSchema);
