@@ -3,16 +3,17 @@ const viewsRouter = express.Router();
 
 require("../connect");
 
+global.isHomePage = true;
+
 viewsRouter.get("/", (req, res) => {
-    res.render("index");
+  return res.render("index");
 });
 
 viewsRouter.get("/login", (req, res) => {
-    res.render("login");
+  // Check if page is home page
+  isHomePage = false;
+  
+  return res.render("login");
 });
-
-viewsRouter.get("/authenticate", (req, res) => {
-    res.render("auth");
-})
 
 module.exports = viewsRouter;
