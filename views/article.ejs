@@ -3,12 +3,18 @@
   <head>
     <%- include('./partials/head') -%>
   </head>
-  <body class="clearfix">
-    <header class="m-0"><%- include('./partials/header') -%></header>
-    <main class="container">
-      <div class="row justify-content-center align-items-center">
+  <body class="d-flex flex-column min-vh-100">
+    <header class="m-0">
+      <%- include('./partials/header-alternative') -%>
+    </header>
+    <main class="container mb-5">
+      <section class="row justify-content-center align-items-center">
         <div class="col-lg-5 col-md-8">
-          <form action="/articles" method="post" class="border my-5 p-4 rounded">
+          <form
+            action="/articles"
+            method="post"
+            class="border my-5 p-4 rounded"
+          >
             <h3 class="text-center pb-3">Add a New Article</h3>
             <div class="mb-3">
               <label for="exampleInputTitle1" class="form-label"
@@ -32,24 +38,85 @@
               />
             </div>
             <div class="mb-3">
-                <label for="exampleInputDescription1" class="form-label"
-                  >Article URL</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputURL1"
-                />
-              </div>
+              <label for="exampleInputDescription1" class="form-label"
+                >Article URL</label
+              >
+              <input type="text" class="form-control" id="exampleInputURL1" />
+            </div>
             <input type="submit" class="btn btn-primary w-100" />
           </form>
         </div>
-      </div>
+      </section>
+      <section class="row justify-content-center align-items-center gap-4">
+        <!-- <article class="card" style="width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">Some Article</h5>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            </p>
+            <a target="_blank" href="https://jsonplaceholder.typicode.com/" class="btn btn-primary"
+              >View Article</a
+            >
+          </div>
+        </article>
+        <article class="card" style="width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">Some Article</h5>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            </p>
+            <a target="_blank" href="https://jsonplaceholder.typicode.com/" class="btn btn-primary"
+              >View Article</a
+            >
+          </div>
+        </article>
+        <article class="card" style="width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">Some Article</h5>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            </p>
+            <a target="_blank" href="https://jsonplaceholder.typicode.com/" class="btn btn-primary"
+              >View Article</a
+            >
+          </div>
+        </article>
+        <article class="card" style="width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">Some Article</h5>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            </p>
+            <a target="_blank" href="https://jsonplaceholder.typicode.com/" class="btn btn-primary"
+              >View Article</a
+            >
+          </div>
+        </article>
+        <article class="card" style="width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">Some Article</h5>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            </p>
+            <a target="_blank" href="https://jsonplaceholder.typicode.com/" class="btn btn-primary"
+              >View Article</a
+            >
+          </div>
+        </article>
+        <article class="card" style="width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">Some Article</h5>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            </p>
+            <a target="_blank" href="https://jsonplaceholder.typicode.com/" class="btn btn-primary"
+              >View Article</a
+            >
+          </div>
+        </article> -->
+      </section>
     </main>
-    <footer
-      class="bg-dark text-light footer"
-      style="position: absolute; right: 0; left: 0; bottom: 0"
-    >
+    <footer class="bg-dark text-light mt-auto">
       <%- include('./partials/footer') -%>
     </footer>
     <script
