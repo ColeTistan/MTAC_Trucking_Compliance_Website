@@ -1,8 +1,6 @@
 const express = require("express");
 const viewsRouter = express.Router();
 
-require("../connect");
-
 global.isHomePage = true;
 
 viewsRouter.get("/", (req, res) => {
@@ -10,10 +8,11 @@ viewsRouter.get("/", (req, res) => {
 });
 
 viewsRouter.get("/login", (req, res) => {
-  // Check if page is home page
-  isHomePage = false;
-  
-  return res.render("login");
+  res.render("login");
+});
+
+viewsRouter.get("/signup", (req, res) => {
+  res.render("signup");
 });
 
 module.exports = viewsRouter;
