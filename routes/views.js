@@ -1,12 +1,10 @@
 const express = require("express");
 const viewsRouter = express.Router();
 
-global.isHomePage = true;
-
 viewsRouter.get("/", (req, res) => {
-  const token = req.cookies.token;
+  let token = req.cookies.token;
   console.log(token);
-  return res.render("index");
+  return res.render("index", { token });
 });
 
 viewsRouter.get("/login", (req, res) => {
@@ -17,8 +15,12 @@ viewsRouter.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-viewsRouter.get("/news", (req, res) => {
+viewsRouter.get("/article", (req, res) => {
   res.render("article");
-})
+});
+
+viewsRouter.get("/news", (req, res) => {
+  res.render("news");
+});
 
 module.exports = viewsRouter;

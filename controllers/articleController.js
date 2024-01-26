@@ -7,7 +7,7 @@ require("../connect");
 const getArticles = async (req, res) => {
   try {
     const articles = await Article.find();
-    res.json(articles);
+    return articles;
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -39,22 +39,26 @@ const getArticleById = async (req, res) => {
 
 // POST - create a new article
 const createArticle = async (req, res) => {
-  const { title, description, url } = req.body;
+  const title = req.body.title;
+  const description = req.body.description;
+  const url = req.body.url;
+  console.log(title, description, url);
   try {
     if (title == "" || description == "" || url == "") {
       res.status(400).json({
         message: "Error: all fields are required and must be entered...",
       });
     }
-    const newArticle = new Article({
+    const newArticle = Article({
       title: title,
       description: description,
       url: url,
     });
     await newArticle.save();
-    res
-      .status(201)
-      .json({ message: "Successfully added new article", data: newArticle });
+    res.status(201).json({
+      message: "Successfully added new article",
+      data: newArticle,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -83,7 +87,7 @@ const updateArticleById = async (req, res) => {
     ) {
       res.status(400).json({
         message: "Error: all fields are required and must be entered...",
-      }); 
+      });
     }
     const updatedArticle = await Article.findByIdAndUpdate(
       articleId,
