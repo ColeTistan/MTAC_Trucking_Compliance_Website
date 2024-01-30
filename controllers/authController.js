@@ -39,7 +39,7 @@ const loginUser = async (req, res) => {
   const response = await verifyUserLogin(email, password);
   if (response.status === "ok") {
     // storing our JWT web token as a cookie in our browser
-    res.cookie("token", token, { maxAge: 2, httpOnly: true }); // maxAge: 2 hours
+    res.cookie("token", token, { maxAge: 2 * 60 * 60 * 1000, httpOnly: true }); // maxAge: 2 hours
     res.redirect("/");
   } else {
     res.json(response);

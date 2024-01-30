@@ -6,8 +6,9 @@ require("../connect");
 // GET - Retrieve all articles
 const getArticles = async (req, res) => {
   try {
-    const articles = await Article.find();
-    return articles;
+    const articles = await Article.find().exec();
+    res.render("articles", { articles: articles, token: req.cookies.token });
+    console.log(articles);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -55,10 +56,7 @@ const createArticle = async (req, res) => {
       url: url,
     });
     await newArticle.save();
-    res.status(201).json({
-      message: "Successfully added new article",
-      data: newArticle,
-    });
+    res.redirect("/articles");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -105,7 +103,7 @@ const updateArticleById = async (req, res) => {
 const deleteArticleById = async (req, res) => {
   const articleId = req.params.id;
   try {
-    const article = await Article.deleteOne({ _id: articleId });
+    const article = await Article.findByIdAndDelete(articleId);
     res
       .status(201)
       .json({ message: "Successfully deleted article", data: article });
