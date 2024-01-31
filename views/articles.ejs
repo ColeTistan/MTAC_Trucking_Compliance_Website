@@ -3,9 +3,9 @@
   <head>
     <%- include('./partials/head') -%>
   </head>
-  <body class="d-flex flex-column min-vh-100">
+  <body class="d-flex flex-column min-vh-100 bg-light">
     <header class="m-0"><%- include('./partials/header') -%></header>
-    <main class="bg-light">
+    <main>
       <section class="text-center pt-1 overflow-x-hidden container">
         <h3 class="text-center fw-bold p-3">Articles</h3>
         <div
@@ -30,21 +30,37 @@
                 <h5 class="card-title"><%= article.title %></h5>
                 <p class="card-text"><%= article.description %></p>
               </div>
-              <div class="card-footer">
+              <div class="card-footer text-light">
                 <a
                   target="_blank"
                   href="<%= article.url %>"
-                  class="btn btn-primary w-50"
+                  class="btn btn-primary text-center"
                 >
                   View Article
                 </a>
+                <!-- TODO - Add user functionality to update and delete articles as an employee -->
+                <%# if (token) { %>
+                <!-- <a
+                  href="/articles/update/<%= article._id %>"
+                  class="btn btn-info"
+                >
+                  <img src="/img/pencil-square.svg" alt="edit article" />
+                </a>
+                <a
+                  target="_blank"
+                  href="/articles/delete/<%= article._id %>"
+                  class="btn btn-danger text-white"
+                >
+                  <img src="/img/trash3-fill.svg" alt="delete article" />
+                </a> -->
+                <%# } %>
               </div>
             </div>
           </div>
           <% }); %>
         </div>
       </section>
-      <footer class="footer bg-dark text-light mt-auto py-3">
+      <footer class="footer fixed-bottom py-3 bg-dark text-light">
         <%- include('./partials/footer') -%>
       </footer>
       <script

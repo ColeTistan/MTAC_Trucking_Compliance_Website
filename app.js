@@ -47,17 +47,6 @@ app.use(authRouter);
 app.use(articleRouter);
 app.use(viewsRouter);
 
-// // get requests
-// app.get("/", (req, res) => {
-//   const { verifyToken } = require("./controllers/authController");
-//   console.log(token);
-//   if (verifyToken(token)) {
-//     res.render("employee");
-//   } else {
-//     res.render("index");
-//   }
-// });
-
 app.listen(port, () => {
   console.log(`Running on port ${port}`);
 });
