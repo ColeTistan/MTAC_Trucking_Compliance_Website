@@ -1,8 +1,6 @@
 const express = require("express");
-const Article = require("../models/Article");
 const articleRouter = express.Router();
 const baseUrl = "/articles";
-const urlById = `${baseUrl}/:id`;
 const {
   getArticles,
   getArticleById,
@@ -14,8 +12,8 @@ const {
 require("../connect");
 
 articleRouter.get(`${baseUrl}/`, getArticles);
-articleRouter.get(urlById, getArticleById);
+articleRouter.get(`${baseUrl}/:id`, getArticleById);
 articleRouter.post(`${baseUrl}/`, createArticle);
-articleRouter.put(urlById, updateArticleById);
-articleRouter.delete(urlById, deleteArticleById);
+articleRouter.put(`${baseUrl}/update/:id`, updateArticleById);
+articleRouter.delete(`${baseUrl}/delete/:id`, deleteArticleById);
 module.exports = articleRouter;

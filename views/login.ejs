@@ -3,12 +3,12 @@
   <head>
     <%- include('./partials/head') -%>
   </head>
-  <body class="clearfix">
-    <header class="m-0"><%- include('./partials/header-alternative') -%></header>
-    <main class="container">
-      <div class="row justify-content-center align-items-center">
-        <div class="col-lg-5 col-md-8">
-          <form action="/login" method="post" class="border my-5 p-4 rounded">
+  <body class="bg-light d-flex flex-column min-vh-100">
+    <header class="m-0"><%- include('./partials/header') -%></header>
+    <main class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6 p-4 border border-dark-subtle rounded bg-light shadow mb-5">
+          <form action="/login" method="post">
             <h3 class="text-center pb-3">Login</h3>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"
@@ -38,7 +38,7 @@
         </div>
       </div>
     </main>
-    <footer class="bg-dark text-light mt-auto">
+    <footer class="footer mt-auto py-3 bg-dark text-light">
       <%- include('./partials/footer') -%>
     </footer>
     <script
