@@ -30,7 +30,7 @@ viewsRouter.get("/article", (req, res) => {
 });
 
 viewsRouter.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", { token: req.cookies.token });
 });
 
 module.exports = viewsRouter;
