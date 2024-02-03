@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') -%>
+  </head>
+  <body class="d-flex flex-column min-vh-100 bg-light">
+    <header class="m-0"><%- include('./partials/header') -%></header>
+    <main>
+      <section class="text-center">
+        <div class="container">
+          <h3 class="text-center fw-bold pt-3">Our Mission</h3>
+          <figure>
+            <blockquote class="blockquote">
+              <p class="px-5 py-2">
+                Safety Solutions for All Motor Carriers. We strive to ensure
+                that all Motor Carriers, along with their commercial motor
+                vehicles and drivers, are in compliance with all applicable
+                USDOT/FMCSA and State regulations. We will work with you to
+                ensure your company understands what the industry standards are
+                and to improve compliance and safety management of your
+                business. We take a contemporary and aggressive approach to
+                ensuring you have a safe and compliant operation.
+              </p>
+            </blockquote>
+            <figcaption class="blockquote-footer fs-5 text-center">
+              Brian A McGuire, Founder & Owner
+            </figcaption>
+          </figure>
+          <div class="accordion pb-5" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                >
+                  What Services does M-Tac Trucking Compliance provide to
+                  customers?
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample"
+              >
+                <div
+                  class="accordion-body d-flex justify-content-center align-items-center flex-column"
+                >
+                  <p class="text-center">
+                    We provide the following services to our customers:
+                  </p>
+                  <div class="row">
+                    <div class="col">
+                      <ul>
+                        <li>US DOT Compliance Services</li>
+                        <li>Safety Audit & Compliance Review Representation</li>
+                        <li>CSA Safety Rating Improvement Strategies</li>
+                        <li>HOS / ELD Regulations</li>
+                        <li>Annual Vehicle Inspections (49 CFR 396)</li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul>
+                        <li>Post Crash Inspections & Guidance</li>
+                        <li>Driver File Management</li>
+                        <li>Vehicle Maintenance Files</li>
+                        <li>Guidance for USDOT and State Statutes</li>
+                        <li>Data Queries / Challenges</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <a
+                    class="btn btn-primary text-light btn-block"
+                    target="_blank"
+                    href="/img/Brochure_3.pdf"
+                    >See Our Brochure</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer mt-auto py-3 bg-dark text-light">
+      <%- include('./partials/footer') -%>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/assets/index.js"></script>
+  </body>
+</html>

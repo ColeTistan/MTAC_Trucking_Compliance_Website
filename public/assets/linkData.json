@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "US DOT | FMCSA",
+        "imgUrl": "/img/US-DOT.png",
+        "linkUrl": "https://www.fmcsa.dot.gov/"
+    },
+    {
+        "id": 2,
+        "name": "Drug and Alcohol Clearinghouse",
+        "imgUrl": "/img/drug.png",
+        "linkUrl": "https://clearinghouse.fmcsa.dot.gov/"
+    },
+    {
+        "id": 3,
+        "name": "Safety Management System",
+        "imgUrl": "/img/safety.jpg",
+        "linkUrl": "https://ai.fmcsa.dot.gov/SMS"
+    },
+    {
+        "id": 4,
+        "name": "Electronic Code of Federal Regulation",
+        "imgUrl": "/img/ecfr.png",
+        "linkUrl": "https://www.ecfr.gov/current/title-49"
+    },
+    {
+        "id": 5,
+        "name": "NJ Motor Vehicle Commission",
+        "imgUrl": "/img/njmvc.png",
+        "linkUrl": "https://www.state.nj.us/mvc/"
+    },
+    {
+        "id": 6,
+        "name": "PA DOT",
+        "imgUrl": "/img/pa-dot.png",
+        "linkUrl": "https://www.penndot.gov"
+    },
+    {
+        "id": 7,
+        "name": "DE DOT",
+        "imgUrl": "/img/deldot.png",
+        "linkUrl": "https://www.dmv.de.gov/"
+    },
+    {
+        "id": 8,
+        "name": "NJ State Police",
+        "imgUrl": "/img/njsp.png",
+        "linkUrl": "https://www.njsp.org/"
+    },
+    {
+        "id": 9,
+        "name": "Tips for Truck Drivers",
+        "imgUrl": "/img/tips.png",
+        "linkUrl": "https://www.lanierlawfirm.com/50-tips-for-truck-drivers/"
+    },
+    {
+        "id": 10,
+        "name": "Commercial Vehicle Safety Alliance: CVSA",
+        "imgUrl": "/img/csva.png",
+        "linkUrl": "https://www.cvsa.org/"
+    }
+]
