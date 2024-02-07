@@ -7,7 +7,7 @@ require("../connect");
 const getArticles = async (req, res) => {
   try {
     const articles = await Article.find().exec();
-    res.render("articles", { articles: articles, token: req.cookies.token });
+    res.render("news", { articles: articles, token: req.cookies.token });
     console.log(articles);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -56,7 +56,7 @@ const createArticle = async (req, res) => {
       url: url,
     });
     await newArticle.save();
-    res.redirect("/articles");
+    res.redirect("/news");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
