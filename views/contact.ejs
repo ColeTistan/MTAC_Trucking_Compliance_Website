@@ -3,19 +3,19 @@
   <head>
     <%- include('./partials/head') -%>
   </head>
-  <body class="d-flex flex-column min-vh-100">
+  <body class="d-flex flex-column min-vh-100 bg-light">
     <header class="m-0"><%- include('./partials/header') -%></header>
     <main>
-      <section class="bg-light-text-center">
+      <section class="text-center">
         <div class="container">
           <div>
-            <h3 class="text-center fw-bold pt-3">Contact Us</h3>
             <form
-              class="col-md-6 g-3 mx-auto p-2"
+              class="col-md-9 col-lg-6 g-3 mx-auto py-3 px-4 border border-dark-subtle rounded bg-light shadow m-5"
               target="_blank"
               action="https://formsubmit.co/mtactruckingcompliance@gmail.com"
               method="POST"
             >
+              <h3 class="text-center fw-bold pt-3">Contact Us</h3>
               <div class="form-floating mb-3">
                 <input
                   type="text"
@@ -63,7 +63,7 @@
         </div>
       </section>
     </main>
-    <footer class="footer fixed-bottom py-3 bg-dark text-light">
+    <footer class="footer mt-auto py-3 bg-dark text-light">
       <%- include('./partials/footer') -%>
     </footer>
     <script
@@ -71,6 +71,5 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="/assets/index.js"></script>
   </body>
 </html>
