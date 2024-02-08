@@ -1,47 +1,52 @@
-// Imports
+// Import NPM packages
 const express = require("express");
 const cors = require("cors");
-const morgan = require("morgan");
-const helmet = require("helmet");
 const dotenv = require("dotenv");
+const path = require("path");
 
-// configure express app and middleware
-const app = express()
-const port = process.env.PORT || 3000;
-
-// Static Files
-app.use(express.static('public'))
-app.use('/css', express.static(__dirname + 'public/css'))
-app.use('/js', express.static(__dirname + 'public/js'))
-app.use('/img', express.static(__dirname + 'public/img'))
-app.use('/assets', express.static(__dirname + 'public/assets'))
-
-// Set Views
-app.set('views', 'views')
-app.set('view engine', 'ejs')
+const viewsRouter = require("./routes/views");
+const authRouter = require("./routes/auth");
+const articleRouter = require("./routes/article");
 
 // configure dotenv file
 dotenv.config();
 
-// configure express app and middleware
-app.use(cors());
+const port = process.env.PORT || 3000;
+const app = express();
+
+let cookieParser = require("cookie-parser");
+
+require("./connect");
+
+// configure additional settings for app
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname + "/views"));
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", req.headers.origin);
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
-app.use(helmet({contentSecurityPolicy: false}));
+app.use(cookieParser());
+app.use(cors());
 
-app.use(morgan("common"));
+// configure static files
+app.use(express.static(__dirname + "/public"));
+app.use("/css", express.static("./public/css"));
+app.use("/js", express.static(__dirname + "public/js"));
+app.use("/img", express.static(__dirname + "public/img"));
+app.use("/assets", express.static(__dirname + "public/assets"));
 
-// import and setup routes
-const baseRoute = "/api";
-const articleRoutes = require("./routes/article");
-const userRoutes = require("./routes/user");
-const authRoutes = require("./routes/auth");
-const viewRoutes = require("./routes/views");
+app.use(authRouter);
+app.use(articleRouter);
+app.use(viewsRouter);
 
-app.use(baseRoute, articleRoutes);
-app.use(baseRoute, userRoutes);
-app.use(baseRoute, authRoutes);
-app.use(viewRoutes);
-
-// Listen to available port
-app.listen(port, () => console.log(`listening on Port ${port}...`));
+app.listen(port, () => {
+  console.log(`Running on port ${port}`);
+});

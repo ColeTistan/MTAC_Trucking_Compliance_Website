@@ -1,4 +1,4 @@
-[
+let linkData = [
     {
         "id": 1,
         "name": "US DOT | FMCSA",
@@ -60,3 +60,5 @@
         "linkUrl": "https://www.cvsa.org/"
     }
 ]
+
+module.exports = linkData;
