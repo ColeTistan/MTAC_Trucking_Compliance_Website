@@ -8,7 +8,6 @@ const getArticles = async (req, res) => {
   try {
     const articles = await Article.find().exec();
     res.render("news", { articles: articles, token: req.cookies.token });
-    console.log(articles);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -43,7 +42,6 @@ const createArticle = async (req, res) => {
   const title = req.body.title;
   const description = req.body.description;
   const url = req.body.url;
-  console.log(title, description, url);
   try {
     if (title == "" || description == "" || url == "") {
       res.status(400).json({

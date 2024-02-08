@@ -6,10 +6,6 @@ viewsRouter.get("/", (req, res) => {
   return res.render("index", { token: req.cookies.token });
 });
 
-viewsRouter.get("/about", (req, res) => {
-  res.render("about", { token: req.cookies.token });
-});
-
 viewsRouter.get("/service", (req, res) => {
   res.render("service", { token: req.cookies.token });
 });
