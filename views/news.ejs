@@ -36,11 +36,12 @@
                   href="<%= article.url %>"
                   class="btn btn-primary text-center"
                 >
-                  View Article
+                <img src="/img/eye-fill.svg" alt="view article">
+                  <!-- View Article -->
                 </a>
                 <!-- TODO - Add user functionality to update and delete articles as an employee -->
-                <%# if (token) { %>
-                <!-- <a
+                <% if (token) { %>
+                <a
                   href="/articles/update/<%= article._id %>"
                   class="btn btn-info"
                 >
@@ -52,8 +53,8 @@
                   class="btn btn-danger text-white"
                 >
                   <img src="/img/trash3-fill.svg" alt="delete article" />
-                </a> -->
-                <%# } %>
+                </a>
+                <% } %>
               </div>
             </div>
           </div>
