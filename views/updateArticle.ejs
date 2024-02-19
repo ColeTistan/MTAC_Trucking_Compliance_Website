@@ -11,7 +11,7 @@
       <section class="row justify-content-center align-items-center">
         <div class="col-lg-5 col-md-8">
           <form
-            action="/news"
+            action="/news/update/<%= article.id %>?_method=PUT"
             method="post"
             class="border my-5 p-4 rounded shadow-sm"
           >

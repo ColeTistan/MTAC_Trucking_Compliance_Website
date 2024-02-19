@@ -95,9 +95,7 @@ const updateArticleById = async (req, res) => {
       articleId,
       articleData
     );
-    res
-      .status(201)
-      .json({ message: "Successfully updated article", data: updatedArticle });
+    res.redirect("/news");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
