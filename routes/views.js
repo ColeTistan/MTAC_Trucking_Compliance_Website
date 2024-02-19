@@ -28,10 +28,6 @@ viewsRouter.get("/contact", (req, res) => {
   res.render("contact", { token: req.cookies.token });
 });
 
-viewsRouter.get("/article", (req, res) => {
-  res.render("addArticle", { token: req.cookies.token });
-});
-
 viewsRouter.get("/login", (req, res) => {
   res.render("login", { token: req.cookies.token });
 });

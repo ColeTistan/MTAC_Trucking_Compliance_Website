@@ -31,10 +31,15 @@ const getArticleById = async (req, res) => {
     if (article === "") {
       res.status(404).json({ message: "Error: cannot find article data..." });
     }
-    res.json(article);
+    res.render("updateArticle", { article: article, token: req.cookies.token });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+};
+
+// GET - create a new article
+const addArticle = async (req, res) => {
+  res.render("addArticle", { token: req.cookies.token });
 };
 
 // POST - create a new article
@@ -63,6 +68,7 @@ const createArticle = async (req, res) => {
 // PUT - Update an existing article by ID
 const updateArticleById = async (req, res) => {
   // get article Id and request data being updated
+  // TODO - modify logic to retrieve article data by id before updating document.
   const articleId = req.params.id;
   let articleData = {
     title: req.body.title,
@@ -113,6 +119,7 @@ const deleteArticleById = async (req, res) => {
 module.exports = {
   getArticles,
   getArticleById,
+  addArticle,
   createArticle,
   updateArticleById,
   deleteArticleById,

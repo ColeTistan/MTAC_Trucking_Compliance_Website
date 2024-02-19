@@ -42,14 +42,14 @@
                 <!-- TODO - Add user functionality to update and delete articles as an employee -->
                 <% if (token) { %>
                 <a
-                  href="/articles/update/<%= article._id %>"
+                  href="/news/update/<%= article._id %>"
                   class="btn btn-info"
                 >
                   <img src="/img/pencil-square.svg" alt="edit article" />
                 </a>
                 <a
                   target="_blank"
-                  href="/articles/delete/<%= article._id %>"
+                  href="/news/delete/<%= article._id %>"
                   class="btn btn-danger text-white"
                 >
                   <img src="/img/trash3-fill.svg" alt="delete article" />
