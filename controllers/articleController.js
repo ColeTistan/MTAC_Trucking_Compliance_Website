@@ -40,7 +40,7 @@ const getArticleById = async (req, res) => {
 
 // GET - create a new article
 const addArticle = async (req, res) => {
-  if (!hasToken)
+  if (!req.cookies.token)
     res.render("notFound")
   else
     res.render("addArticle", { token: req.cookies.token });
