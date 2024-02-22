@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Article = require("../models/Article");
+const { hasToken } = require("../services/authService");
 
 require("../connect");
 
@@ -39,7 +40,10 @@ const getArticleById = async (req, res) => {
 
 // GET - create a new article
 const addArticle = async (req, res) => {
-  res.render("addArticle", { token: req.cookies.token });
+  if (!hasToken)
+    res.render("notFound")
+  else
+    res.render("addArticle", { token: req.cookies.token });
 };
 
 // POST - create a new article

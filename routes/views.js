@@ -32,4 +32,12 @@ viewsRouter.get("/login", (req, res) => {
   res.render("login", { token: req.cookies.token });
 });
 
+// viewsRouter.get("/notFound", (req, res) => {
+//   res.render("notFound", { token: req.cookies.token });
+// });
+
+viewsRouter.get("*", (req, res) => {
+  res.render("notFound");
+});
+
 module.exports = viewsRouter;
