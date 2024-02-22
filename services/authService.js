@@ -31,6 +31,11 @@ const verifyUserLogin = async (email, password) => {
   }
 };
 
+const hasToken = (req, res) => {
+  return req.cookies.token;
+}
+
 module.exports = {
   verifyUserLogin,
+  hasToken
 };
