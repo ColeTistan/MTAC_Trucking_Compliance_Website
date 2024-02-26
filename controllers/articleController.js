@@ -40,10 +40,8 @@ const getArticleById = async (req, res) => {
 
 // GET - create a new article
 const addArticle = async (req, res) => {
-  if (!req.cookies.token)
-    res.render("notFound")
-  else
-    res.render("addArticle", { token: req.cookies.token });
+  if (!req.cookies.token) res.render("notFound");
+  else res.render("addArticle", { token: req.cookies.token });
 };
 
 // POST - create a new article
@@ -95,7 +93,9 @@ const updateArticleById = async (req, res) => {
         message: "Error: all fields are required and must be entered...",
       });
     }
-    const updatedArticle = await Article.findByIdAndUpdate(
+
+    // updated article field(s) by given id
+    await Article.findByIdAndUpdate(
       articleId,
       articleData
     );
@@ -109,7 +109,7 @@ const updateArticleById = async (req, res) => {
 const deleteArticleById = async (req, res) => {
   const articleId = req.params.id;
   try {
-    const article = await Article.findByIdAndDelete(articleId);
+    const article = await Article.deleteOne({ _id: articleId});
     res
       .status(201)
       .json({ message: "Successfully deleted article", data: article });
