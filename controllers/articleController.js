@@ -95,10 +95,7 @@ const updateArticleById = async (req, res) => {
     }
 
     // updated article field(s) by given id
-    await Article.findByIdAndUpdate(
-      articleId,
-      articleData
-    );
+    await Article.findByIdAndUpdate(articleId, articleData);
     res.redirect("/news");
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -108,11 +105,10 @@ const updateArticleById = async (req, res) => {
 // DELETE - Delete an article by ID
 const deleteArticleById = async (req, res) => {
   const articleId = req.params.id;
+  console.log(articleId);
   try {
-    const article = await Article.deleteOne({ _id: articleId});
-    res
-      .status(201)
-      .json({ message: "Successfully deleted article", data: article });
+    await Article.deleteOne({ _id: articleId });
+    res.redirect("/news");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -47,13 +47,39 @@
                 >
                   <img src="/img/pencil-square.svg" alt="edit article" />
                 </a>
-                <a
-                  target="_blank"
-                  href="/news/delete/<%= article._id %>"
-                  class="btn btn-danger text-white"
-                >
-                  <img src="/img/trash3-fill.svg" alt="delete article" />
-                </a>
+                <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal<%= article._id %>"
+              >
+                <img src="/img/trash3-fill.svg" alt="delete article" />
+              </button>
+              <div
+                class="modal fade text-dark"
+                id="deleteModal<%= article._id %>"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header bg-danger text-light">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Confirmation</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Are you sure you want to delete this article? This action cannot be undone once deleted.
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <form action="/news/delete/<%= article.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
                 <% } %>
               </div>
             </div>
