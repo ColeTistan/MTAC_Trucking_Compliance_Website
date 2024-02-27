@@ -1,5 +1,6 @@
 // Import NPM packages
 const express = require("express");
+const flash = require("express-flash");
 const cors = require("cors");
 const methodOverride = require("method-override");
 const dotenv = require("dotenv");
