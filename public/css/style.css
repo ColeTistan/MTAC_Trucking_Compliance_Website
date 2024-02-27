@@ -1,0 +1,116 @@
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #262626;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #ffc100;
+}
+
+header {
+  margin-bottom: 80px;
+}
+
+.navbar-nav .nav-item .nav-link:hover,
+.link-light:hover {
+  color: #ffc000;
+}
+
+.carousel {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.carousel-control {
+  width: 30%; /*put your desired width*/
+  margin-top: 150px; /*put your desired top margin*/
+}
+
+/* SlideShow - start */
+.carousel-inner {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.carousel-control-prev {
+  margin-left: auto;
+}
+
+.carousel-control-next {
+  margin-right: 50% auto;
+}
+
+.next-testimonial,
+.prev-testimonial {
+  margin: auto -15%;
+}
+
+/* SlideShow - end */
+
+@media screen and (min-width: 568px) {
+  .cards-wrapper {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .testimonial-card {
+    margin: 1rem auto;
+    width: calc(100%);
+  }
+}
+
+.card-image {
+  width: 150px;
+  height: auto;
+}
+
+.hero-img {
+  width: 100%;
+  height: 450px; /*or 70%, or what you want*/
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* mobile-responsive - start */
+@media screen and (max-width: 768px) {
+  .carousel {
+    padding-top: 2.4rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .next-testimonial,
+  .prev-testimonial {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .carousel {
+    padding-top: 3.9rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .carousel {
+    padding-top: 3.9rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .carousel {
+    padding-top: 5.4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .testimonial-card:not(:first-child) {
+    display: none;
+  }
+}

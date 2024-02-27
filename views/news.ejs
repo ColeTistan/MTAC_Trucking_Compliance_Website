@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') -%>
+  </head>
+  <body class="d-flex flex-column min-vh-100 bg-light">
+    <header class="m-0"><%- include('./partials/header') -%></header>
+    <main>
+      <section class="text-center pt-1 overflow-x-hidden container">
+        <h3 class="text-center fw-bold p-3">Articles</h3>
+        <div
+          class="d-sm-flex justify-content-around align-items-center text-sm-start"
+        >
+          <div class="mb-4">
+            <a
+              href="../img/Newsletter_2024_Wintera.pdf"
+              target="_blank"
+              class="btn btn-primary text-center fs-4"
+              >See our Newsletter</a
+            >
+          </div>
+        </div>
+        <div class="row g-5 py-5">
+          <% articles.forEach((article) => { %>
+          <div class="col-lg-4 col-md-6 col-sm-1">
+            <div
+              class="card card-block bg-light h-100 text-center shadow mb-5 rounded"
+            >
+              <div class="card-body align-items-center justify-content-center">
+                <h5 class="card-title"><%= article.title %></h5>
+                <p class="card-text"><%= article.description %></p>
+              </div>
+              <div class="card-footer text-light">
+                <a
+                  target="_blank"
+                  href="<%= article.url %>"
+                  class="btn btn-primary text-center"
+                >
+                <img src="/img/eye-fill.svg" alt="view article">
+                  <!-- View Article -->
+                </a>
+                <!-- TODO - Add user functionality to update and delete articles as an employee -->
+                <% if (token) { %>
+                <a
+                  href="/news/update/<%= article._id %>"
+                  class="btn btn-info"
+                >
+                  <img src="/img/pencil-square.svg" alt="edit article" />
+                </a>
+                <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal<%= article._id %>"
+              >
+                <img src="/img/trash3-fill.svg" alt="delete article" />
+              </button>
+              <div
+                class="modal fade text-dark"
+                id="deleteModal<%= article._id %>"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header bg-danger text-light">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Confirmation</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Are you sure you want to delete this article? This action cannot be undone once deleted.
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <form action="/news/delete/<%= article.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <% } %>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </section>
+      </main>
+      <footer class="footer fixed-bottom bg-dark text-light py-3">
+        <%- include('./partials/footer') -%>
+      </footer>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"
+      ></script>
+    </main>
+  </body>
+</html>
