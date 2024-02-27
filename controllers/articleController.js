@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Article = require("../models/Article");
-const { hasToken } = require("../services/authService");
 
 require("../connect");
 
@@ -40,10 +39,11 @@ const getArticleById = async (req, res) => {
 
 // GET - create a new article
 const addArticle = async (req, res) => {
-  if (!req.cookies.token)
-    res.render("notFound")
-  else
+  if (!req.cookies.token) {
+    res.render("notFound");
+  } else {
     res.render("addArticle", { token: req.cookies.token });
+  }
 };
 
 // POST - create a new article
@@ -95,10 +95,9 @@ const updateArticleById = async (req, res) => {
         message: "Error: all fields are required and must be entered...",
       });
     }
-    const updatedArticle = await Article.findByIdAndUpdate(
-      articleId,
-      articleData
-    );
+
+    // updated article field(s) by given id
+    await Article.findByIdAndUpdate(articleId, articleData);
     res.redirect("/news");
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -108,11 +107,10 @@ const updateArticleById = async (req, res) => {
 // DELETE - Delete an article by ID
 const deleteArticleById = async (req, res) => {
   const articleId = req.params.id;
+  console.log(articleId);
   try {
-    const article = await Article.findByIdAndDelete(articleId);
-    res
-      .status(201)
-      .json({ message: "Successfully deleted article", data: article });
+    await Article.deleteOne({ _id: articleId });
+    res.redirect("/news");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
