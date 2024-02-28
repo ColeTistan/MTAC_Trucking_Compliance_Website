@@ -9,15 +9,34 @@
       <section class="text-center pt-1 overflow-x-hidden container">
         <h3 class="text-center fw-bold p-3">Articles</h3>
         <div
-          class="d-sm-flex justify-content-around align-items-center text-sm-start"
+          class="d-sm-flex justify-content-center align-items-center flex-column"
         >
           <div class="mb-4">
             <a
               href="../img/Newsletter_2024_Wintera.pdf"
               target="_blank"
               class="btn btn-primary text-center fs-4"
+              id="newsletter-file"
               >See our Newsletter</a
             >
+            <%# if (token) { %>
+              <!-- <form
+              id="newsletter-form"
+              class="g-3 w-100 mx-auto py-3 px-4 border rounded bg-light shadow m-5"
+            >
+              <h3 class="text-center p-3">Upload Newsletter</h3>
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Choose file path</label>
+                <input class="form-control" type="file" id="formFile">
+              </div>
+              <div
+                id="submit-btn-group"
+                class="col-12 d-flex justify-content-center align-items-center"
+              >
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
+              </div>
+            </form> -->
+            <%# } %>
           </div>
         </div>
         <div class="row g-5 py-5">
@@ -30,16 +49,14 @@
                 <h5 class="card-title"><%= article.title %></h5>
                 <p class="card-text"><%= article.description %></p>
               </div>
-              <div class="card-footer text-light">
+              <div class="py-2 border-top text-light">
                 <a
                   target="_blank"
                   href="<%= article.url %>"
                   class="btn btn-primary text-center"
                 >
                 <img src="/img/eye-fill.svg" alt="view article">
-                  <!-- View Article -->
                 </a>
-                <!-- TODO - Add user functionality to update and delete articles as an employee -->
                 <% if (token) { %>
                 <a
                   href="/news/update/<%= article._id %>"
@@ -88,7 +105,7 @@
         </div>
       </section>
       </main>
-      <footer class="footer fixed-bottom bg-dark text-light py-3">
+      <footer class="footer bg-dark text-light py-3">
         <%- include('./partials/footer') -%>
       </footer>
       <script
@@ -96,6 +113,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"
       ></script>
+      <!-- <script type="text/javascript" src="/assets/newsletter.js"></script> -->
     </main>
   </body>
 </html>
