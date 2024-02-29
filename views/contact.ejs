@@ -6,59 +6,86 @@
   <body class="d-flex flex-column min-vh-100 bg-light">
     <header class="m-0"><%- include('./partials/header') -%></header>
     <main>
-      <section class="text-center">
-        <div class="container">
-          <div>
-            <form
-              class="col-md-9 col-lg-6 g-3 mx-auto py-3 px-4 border rounded bg-light shadow m-5"
-              target="_blank"
-              action="https://formsubmit.co/mtactruckingcompliance@gmail.com"
-              method="POST"
-            >
-              <h3 class="text-center p-3">Contact Us</h3>
-              <div class="form-floating mb-3">
-                <input
-                  type="text"
-                  name="user_name"
-                  class="form-control"
-                  id="floatingInput"
-                  placeholder="John Doe"
-                  required
-                />
-                <label for="floatingInput">Full name</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input
-                  type="email"
-                  name="email"
-                  class="form-control"
-                  id="floatingInputTwo"
-                  placeholder="johndoe@gmail.com"
-                  required
-                />
-                <label for="floatingInput">Email address</label>
-              </div>
-              <div class="col-12 mb-3">
-                <div class="form-floating">
-                  <textarea
-                    name="message"
-                    class="form-control"
-                    placeholder="Enter a message"
-                    id="floatingTextarea2"
-                    style="height: 150px"
-                    required
-                  ></textarea>
-                  <label for="floatingTextarea2">Message</label>
-                </div>
-              </div>
-              <div
-                class="col-12 d-flex justify-content-center align-items-center"
+      <section>
+        <div class="container text-left">
+          <div class="row g-3 py-5 justify-content-md-center">
+            <div class="col-md-9 col-lg-6">
+              <h3>Our Services</h3>
+              <ul class="list-group">
+                <li class="list-group-item">US DOT Compliance Services</li>
+                <li class="list-group-item">
+                  Safety Audit & Compliance Review Representation
+                </li>
+                <li class="list-group-item">
+                  CSA Safety Rating Improvement Strategies
+                </li>
+                <li class="list-group-item">HOS / ELD Regulations</li>
+                <li class="list-group-item">
+                  Annual Vehicle Inspections (49 CFR 396)
+                </li>
+                <li class="list-group-item">
+                  Post Crash Inspections & Guidance
+                </li>
+                <li class="list-group-item">Driver File Management</li>
+                <li class="list-group-item">Vehicle Maintenance Files</li>
+                <li class="list-group-item">
+                  Guidance for USDOT and State Statutes
+                </li>
+                <li class="list-group-item">Data Queries / Challenges</li>
+              </ul>
+            </div>
+            <div class="col-md-9 col-lg-6">
+              <form
+                class="g-3 mx-auto py-3 px-4 border rounded shadow-sm"
+                target="_blank"
+                action="https://formsubmit.co/mtactruckingcompliance@gmail.com"
+                method="POST"
               >
-                <button type="submit" class="btn btn-primary w-100">
-                  Submit
-                </button>
-              </div>
-            </form>
+                <h3>Contact Us</h3>
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    name="user_name"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="John Doe"
+                    required
+                  />
+                  <label for="floatingInput">Full name</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    id="floatingInputTwo"
+                    placeholder="johndoe@gmail.com"
+                    required
+                  />
+                  <label for="floatingInput">Email address</label>
+                </div>
+                <div class="col-12 mb-3">
+                  <div class="form-floating">
+                    <textarea
+                      name="message"
+                      class="form-control"
+                      placeholder="Enter a message"
+                      id="floatingTextarea2"
+                      style="height: 173px"
+                      required
+                    ></textarea>
+                    <label for="floatingTextarea2">Message</label>
+                  </div>
+                </div>
+                <div
+                  class="col-12 d-flex justify-content-center align-items-center"
+                >
+                  <button type="submit" class="btn btn-primary w-100">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </section>
