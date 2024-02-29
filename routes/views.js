@@ -10,15 +10,15 @@ viewsRouter.get("/", (req, res) => {
 });
 
 viewsRouter.get("/service", (req, res) => {
-  res.render("service", { token: req.cookies.token });
+  res.render("service", { token: req.cookies.token, links: linkData });
 });
 
-viewsRouter.get("/links", (req, res) => {
-  res.render("links", {
-    token: req.cookies.token,
-    links: linkData,
-  });
-});
+// viewsRouter.get("/links", (req, res) => {
+//   res.render("links", {
+//     token: req.cookies.token,
+//     links: linkData,
+//   });
+// });
 
 viewsRouter.get("/news", (req, res) => {
   res.render("news", { token: req.cookies.token });
