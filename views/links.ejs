@@ -1,23 +1,27 @@
-<h3 class="text-left fw-bold py-3">External Resources</h3>
-<div class="row g-5 pb-5" id="card-links">
-  <% for (let index in links) { let link = links[index]; %>
-  <div class="col-sm-1 col-md-4 col-lg-3">
-    <div
-      id="<%= link.id %>-<%= link.name %>"
-      class="card card-block bg-light h-100 text-center shadow mb-5 rounded"
-    >
-      <div class="card-body align-items-center justify-content-center">
-        <img class="card-image mb-3" src="<%= link.imgUrl %>" />
-        <h5 class="card-title"><%= link.name %></h5>
+<section class="border-top border-2 border-dark-subtle overflow-x-hidden">
+  <div class="container">
+    <p class="text-left fs-3 fw-medium pt-3">External Resources</p>
+    <div class="row g-5 pb-5" id="card-links">
+      <% for (let index in links) { let link = links[index]; %>
+      <div class="col-sm-1 col-md-4 col-lg-3">
+        <div
+          id="<%= link.id %>-<%= link.name %>"
+          class="card card-block bg-light h-100 text-center shadow mb-5 rounded"
+        >
+          <div class="card-body align-items-center justify-content-center">
+            <img class="card-image mb-3" src="<%= link.imgUrl %>" />
+            <p class="card-title fs-5"><%= link.name %></p>
+          </div>
+          <a
+            target="_blank"
+            href="<%= link.linkUrl %>"
+            class="bg-primary border border-primary text-light fw-medium text-decoration-none rounded-bottom w-100 p-2"
+          >
+            click here
+          </a>
+        </div>
       </div>
-      <a
-        target="_blank"
-        href="<%= link.linkUrl %>"
-        class="bg-primary border border-primary text-light fw-medium text-decoration-none rounded-bottom w-100 p-2"
-      >
-        click here
-      </a>
+      <% }; %>
     </div>
   </div>
-  <% }; %>
-</div>
+</section>
