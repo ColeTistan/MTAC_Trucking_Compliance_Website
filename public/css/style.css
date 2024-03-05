@@ -67,6 +67,12 @@ header {
   height: auto;
 }
 
+.card-image-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
 .hero-img {
   width: 100%;
   height: 450px; /*or 70%, or what you want*/
@@ -112,5 +118,11 @@ header {
 @media screen and (max-width: 768px) {
   .testimonial-card:not(:first-child) {
     display: none;
+  }
+
+  .card-image-top {
+    width: 100%;
+    height: 40vw;
+    object-fit: cover;
   }
 }

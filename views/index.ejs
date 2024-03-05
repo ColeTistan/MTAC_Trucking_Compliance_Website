@@ -6,21 +6,36 @@
   <body class="d-flex flex-column min-vh-100 bg-light">
     <header class="m-0"><%- include('./partials/header') -%></header>
     <main>
-      <section class="bg-light">
+      <section id="hero-img">
         <div>
-          <img class="hero-img" src="../img/inspection_2.jpg" alt="inspection two">
+          <img
+            class="hero-img"
+            src="/img/inspection_2.jpg"
+            alt="inspection two"
+          />
         </div>
-        <!-- <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 mx-auto">
-          <div class="ratio ratio-16x9 text-center my-4">
-            <iframe
-              class="embed-responsive-item"
-              src="https://www.youtube.com/embed/DTpvdyzxQWE?controls=0"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </div> -->
       </section>
-      <%- include('./about') %> <%- include('./testimonials') %>
+      <section id="company-safety-solutions">
+        <div class="container">
+          <p class="align-left fs-3 fw-medium mt-4">Safety Solutions for all Motor Carriers</p>
+          <div class="row text-center">
+            <div class="col-md-6 col-lg-4">
+              <img class="p-2" src="/img/tools.svg" alt="tools">
+              <p class="fs-5">Compliance and Safety Consulting</p>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <img class="p-2" src="/img/checklist.svg" alt="checklist">
+              <p class="fs-5">Safety Audit Preparation &amp; Representation</p>
+            </div>
+            <div class="col-md-12 col-lg-4">
+              <img class="p-2" src="/img/book.svg" alt="book">
+              <p class="fs-5">Customized Training Programs<br>(Virtual &amp; In-Person)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <%- include('./about') %>
+      <%# include('./testimonials') %>
       <div class="py-3 powr-hit-counter powrLoaded" id="d0465e39_1598232449">
         <iframe
           src="https://www.powr.io/hit-counter/u/d0465e39_1598232449#platform=bootstrap?&amp;url=http%3A%2F%2Fmtactruckingcompliance.com%2Findex.html"
