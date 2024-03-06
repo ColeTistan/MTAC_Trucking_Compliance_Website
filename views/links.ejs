@@ -12,13 +12,15 @@
             <img class="card-image mb-3" src="<%= link.imgUrl %>" />
             <p class="card-title fs-5"><%= link.name %></p>
           </div>
-          <a
-            target="_blank"
-            href="<%= link.linkUrl %>"
-            class="bg-primary border border-primary text-light fw-medium text-decoration-none rounded-bottom w-100 p-2"
-          >
-            click here
-          </a>
+          <div class="card-footer d-flex justify-content-center align-items-center">
+            <a
+              target="_blank"
+              href="<%= link.linkUrl %>"
+              class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
+            >
+              Click here
+            </a>
+          </div>
         </div>
       </div>
       <% }; %>
