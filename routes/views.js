@@ -17,6 +17,10 @@ viewsRouter.get("/service", (req, res) => {
   res.render("service", { token: req.cookies.token, links: linkData });
 });
 
+viewsRouter.get("/insights", (req, res) => {
+  res.render("insight", { token: req.cookies.token, links: linkData });
+});
+
 viewsRouter.get("/news", (req, res) => {
   res.render("news", { token: req.cookies.token });
 });
