@@ -1,11 +1,16 @@
+<%- include('./partials/header') %>
 <section>
   <div class="container">
-    <p class="text-left fs-3 fw-medium">About Us</p>
-    <div
-      class="d-sm-flex justify-content-around align-items-center text-sm-start"
-    >
+    <div class="d-flex justify-content-around align-items-center mt-4">
+      <div>
+        <img
+          src="/img/inspection_4.jpg"
+          alt=""
+          class="w-100 h-full mx-auto d-none d-xl-block rounded"
+        />
+      </div>
       <div class="mx-5">
-        <p class="fs-4 fw-medium">A note from Brian McGuire</p>
+        <p class="fs-4 fw-medium mb-1">A note from Brian McGuire</p>
         <p class="fs-5 fw-medium fst-italic">Founder and Owner</p>
         <p class="fs-5 pb-4 mb-0">
           M-Tac Trucking Compliance LLC was established on January 1st of 2019.
@@ -30,122 +35,34 @@
           employees have the tools necessary for the safe and compliant
           operation of your business.
         </p>
-        <!-- <div>
-          <a
-            class="btn btn-primary text-light btn-block"
-            target="_blank"
-            href="/img/Brochure_3.pdf"
-            >See Our Brochure</a
-          >
-        </div> -->
-        <p class="fs-5 text-center">
-          <i class="fas fa-light fa-award"></i>&nbsp;2020 NJ Propane Gas
-          Association Safety Award Recipient&nbsp;<i
-            class="fas fa-light fa-award"
-          ></i>
-        </p>
-        <p class="fs-5 text-center pb-2">
-          <img
-            src="/img/csva.png"
-            class="rounded"
-            alt=""
-            style="height: 40px"
-          />
-          Associate member of CVSA
-        </p>
-      </div>
-      <div>
-        <img
-          src="/img/inspection_4.jpg"
-          alt=""
-          class="img-fluid w-100 mx-auto d-none d-xl-block rounded"
-        />
-      </div>
-    </div>
-  </div>
-</section>
-<section class="border-top border-2 border-dark-subtle overflow-x-hidden p-3">
-  <div class="container">
-    <div>
-      <p class="text-left fs-5 fw-medium mb-0">Featured</p>
-      <p class="text-left fs-3 fw-medium">New and Noteworthy</p>
-    </div>
-    <div class="row g-5 text-center mb-3">
-      <div class="col-sm-1 col-md-6 col-lg-4 col-xl-4">
-        <div
-          class="card card-block bg-light h-100 text-center shadow-sm mb-5 rounded"
-        >
-          <img class="card-image-top" src="/img/inspection_5.jpg" />
-          <div class="card-body align-items-center justify-content-center">
-            <p class="card-title fs-5">Card title</p>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+        <div class="row">
+          <div class="col">
+            <p class="fs-5 text-center">
+              <img
+                src="/img/njpga.png"
+                class="rounded pb-2"
+                alt="NJPGA"
+                style="height: 80px"
+              />
+              <br />
+              &nbsp;2020 NJ Propane Gas Association<br />Safety Award Recipient&nbsp;
             </p>
           </div>
-          <div
-            class="card-footer d-flex justify-content-center align-items-center"
-          >
-            <a
-              target="_blank"
-              href="#"
-              class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
-            >
-              Click here
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-1 col-md-6 col-lg-4 col-xl-4">
-        <div
-          class="card card-block bg-light h-100 text-center shadow mb-5 rounded"
-        >
-          <img class="card-image-top" src="/img/inspection_5.jpg" />
-          <div class="card-body align-items-center justify-content-center">
-            <p class="card-title fs-5">Card title</p>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+          <div class="col">
+            <p class="fs-5 text-center">
+              <img
+                src="/img/csva.png"
+                class="rounded pb-2"
+                alt="CSVA"
+                style="height: 80px"
+              />
+              <br />
+              Associate member of the Commercial Vehicle Safety Association (CVSA)
             </p>
-          </div>
-          <div
-            class="card-footer d-flex justify-content-center align-items-center"
-          >
-            <a
-              target="_blank"
-              href="#"
-              class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
-            >
-              Click here
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-1 col-md-6 col-lg-4 col-xl-4">
-        <div
-          class="card card-block bg-light h-100 text-center shadow mb-5 rounded"
-        >
-          <img class="card-image-top" src="/img/inspection_5.jpg" />
-          <div class="card-body align-items-center justify-content-center">
-            <p class="card-title fs-5">Card title</p>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-          <div
-            class="card-footer d-flex justify-content-center align-items-center"
-          >
-            <a
-              target="_blank"
-              href="#"
-              class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
-            >
-              Click here
-            </a>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<%- include('./testimonials') %> <%- include('./partials/footer') %>
