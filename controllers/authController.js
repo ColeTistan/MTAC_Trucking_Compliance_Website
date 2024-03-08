@@ -2,9 +2,6 @@ const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const { verifyUserLogin } = require("../services/authService");
 
-// Configure connection to mongoDB database
-require("../connect");
-
 // set constants for authentication
 const salt = 10;
 

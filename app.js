@@ -18,7 +18,9 @@ const app = express();
 
 let cookieParser = require("cookie-parser");
 
-require("./connect");
+// connect to mongoDB database.
+const connectDB = require("./connect");
+connectDB();
 
 // configure additional settings for app
 app.set("view engine", "ejs");

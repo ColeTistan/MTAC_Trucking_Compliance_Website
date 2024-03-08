@@ -10,8 +10,6 @@ const {
   deleteArticleById,
 } = require("../controllers/articleController");
 
-require("../connect");
-
 articleRouter.get(`${baseUrl}/`, getArticles);
 articleRouter.get(`${baseUrl}/update/:id`, getArticleById);
 articleRouter.get(`${baseUrl}/create`, addArticle);

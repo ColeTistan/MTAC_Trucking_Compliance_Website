@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 const Article = require("../models/Article");
 
-require("../connect");
-
 // GET - Retrieve all articles
 const getArticles = async (req, res) => {
   try {
