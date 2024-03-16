@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { upload } = require("../services/articleServices");
 const Article = require("../models/Article");
 
 // GET - Retrieve all articles
@@ -37,20 +38,20 @@ const getArticleById = async (req, res) => {
 
 // GET - create a new article
 const addArticle = async (req, res) => {
-  if (!req.cookies.token) {
-    res.render("notFound");
-  } else {
-    res.render("addArticle", { token: req.cookies.token });
-  }
+  if (!req.cookies.token) res.render("notFound");
+  else res.render("addArticle", { token: req.cookies.token });
 };
 
 // POST - create a new article
 const createArticle = async (req, res) => {
+  // TODO - Add functionality to handle uploading files
   const title = req.body.title;
   const description = req.body.description;
   const url = req.body.url;
+  const file = req.file.filename;
+
   try {
-    if (title == "" || description == "" || url == "") {
+    if (title == "" || description == "") {
       res.status(400).json({
         message: "Error: all fields are required and must be entered...",
       });
@@ -59,18 +60,18 @@ const createArticle = async (req, res) => {
       title: title,
       description: description,
       url: url,
+      file: file,
     });
     await newArticle.save();
     res.redirect("/news");
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+  } catch (err) {
+    console.error(err.message);
   }
 };
 
 // PUT - Update an existing article by ID
 const updateArticleById = async (req, res) => {
   // get article Id and request data being updated
-  // TODO - modify logic to retrieve article data by id before updating document.
   const articleId = req.params.id;
   let articleData = {
     title: req.body.title,

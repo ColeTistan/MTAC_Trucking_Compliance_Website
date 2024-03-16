@@ -15,7 +15,11 @@ const articleSchema = mongoose.Schema({
     },
     url: {
         type: String,
-        required: true
+        default: "",
+    },
+    file: {
+        type: String,
+        default: "",
     }
 });
 

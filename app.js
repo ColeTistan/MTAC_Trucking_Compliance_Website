@@ -1,6 +1,5 @@
 // Import NPM packages
 const express = require("express");
-const flash = require("express-flash");
 const cors = require("cors");
 const methodOverride = require("method-override");
 const dotenv = require("dotenv");
@@ -26,7 +25,7 @@ connectDB();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname + "/views"));
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", req.headers.origin);
   res.header(
     "Access-Control-Allow-Headers",
@@ -35,6 +34,7 @@ app.use(function (req, res, next) {
   next();
 });
 
+// configure packages to handle middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
@@ -48,6 +48,7 @@ app.use("/js", express.static(__dirname + "public/js"));
 app.use("/img", express.static(__dirname + "public/img"));
 app.use("/assets", express.static(__dirname + "public/assets"));
 
+// use api and view routes
 app.use(authRouter);
 app.use(articleRouter);
 app.use(viewsRouter);
