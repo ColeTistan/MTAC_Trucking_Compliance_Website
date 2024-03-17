@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
 const articleSchema = mongoose.Schema({
-    // TODO - modify current model to allow internal articles
-    // to be added as a file upload.
     title: {
         type: String,
         required: true,
@@ -17,9 +15,21 @@ const articleSchema = mongoose.Schema({
         type: String,
         default: "",
     },
+    image: {
+        type: String,
+        required: true
+    },
     file: {
         type: String,
         default: "",
+    },
+    isFeatured: {
+        type: Boolean,
+        default: false
+    },
+    dateCreated: {
+        type: Date,
+        default: Date.now()
     }
 });
 

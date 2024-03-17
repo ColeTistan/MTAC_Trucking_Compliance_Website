@@ -48,7 +48,9 @@ const createArticle = async (req, res) => {
   const title = req.body.title;
   const description = req.body.description;
   const url = req.body.url;
-  const file = req.file.filename;
+  const img = req.files["file"][0].filename;
+  const file = req.files["image"][0].filename;
+  const isFeatured = JSON.parse(req.body.isFeatured);
 
   try {
     if (title == "" || description == "") {
@@ -60,7 +62,9 @@ const createArticle = async (req, res) => {
       title: title,
       description: description,
       url: url,
+      image: img,
       file: file,
+      isFeatured: isFeatured ? isFeatured : false,
     });
     await newArticle.save();
     res.redirect("/news");
