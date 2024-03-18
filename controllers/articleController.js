@@ -48,9 +48,13 @@ const createArticle = async (req, res) => {
   const title = req.body.title;
   const description = req.body.description;
   const url = req.body.url;
-  const img = req.files["file"][0].filename;
-  const file = req.files["image"][0].filename;
+  const img = req.files["image"][0].filename;
   const isFeatured = JSON.parse(req.body.isFeatured);
+  let file;
+  if (!req.file)
+    file = undefined;
+  else
+    file = req.files["file"][0].filename;    
 
   try {
     if (title == "" || description == "") {
