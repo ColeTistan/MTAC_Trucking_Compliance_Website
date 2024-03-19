@@ -1,6 +1,5 @@
 const express = require("express");
 const viewsRouter = express.Router();
-let { linkData, testimonialData } = require("../public/assets/data");
 
 viewsRouter.get("/", (req, res) => {
   res.render("index", { token: req.cookies.token });
@@ -11,11 +10,11 @@ viewsRouter.get("/about", (req, res) => {
 });
 
 viewsRouter.get("/service", (req, res) => {
-  res.render("service", { token: req.cookies.token, links: linkData });
+  res.render("service", { token: req.cookies.token });
 });
 
-viewsRouter.get("/insights", (req, res) => {
-  res.render("insight", { token: req.cookies.token, links: linkData });
+viewsRouter.get("/insight", (req, res) => {
+  res.render("insight", { token: req.cookies.token });
 });
 
 viewsRouter.get("/news", (req, res) => {

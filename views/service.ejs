@@ -1,26 +1,105 @@
-<%- include('./partials/header') -%>
-      <section>
-        <div class="container">
-          <p class="text-left fs-3 fw-medium">Our Mission</p>
-          <figure>
-            <blockquote class="blockquote">
-              <p class="px-5 py-2">
-                Safety Solutions for All Motor Carriers. We strive to ensure
-                that all Motor Carriers, along with their commercial motor
-                vehicles and drivers, are in compliance with all applicable
-                USDOT/FMCSA and State regulations. We will work with you to
-                ensure your company understands what the industry standards are
-                and to improve compliance and safety management of your
-                business. We take a contemporary and aggressive approach to
-                ensuring you have a safe and compliant operation.
-              </p>
-            </blockquote>
-            <figcaption class="blockquote-footer fs-5 text-left">
-              Brian A McGuire, Founder & Owner
-            </figcaption>
-          </figure>
+<%- include('./partials/header') %>
+<section id="insight-video-section" class="py-4">
+  <div class="container">
+    <h3 class="align-left mt-1">Industry Insights</h3>
+    <div class="row justify-content-center align-items-center">
+      <div
+        class="col-sm-4 col-md-6 col-lg-4"
+        data-example-id="responsive-embed-16by9-iframe-youtube"
+      >
+        <div>
+          <iframe
+            src="https://www.youtube.com/embed/zB4I68XVPzQ?si=Brg83KUATJFPseg3"
+            title="YouTube video player"
+            class="embedded-video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </div>
-      </section>
-      <%- include('./links') -%>
-    </main>
-    <%- include('./partials/footer') -%>
+      </div>
+      <div class="col-sm-4 col-md-6 col-lg-3">
+        <p class="fs-4 fw-medium mb-1">Video Title</p>
+        <p class="fs-6 pb-4 mb-0">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique,
+          eligendi necessitatibus autem, repudiandae delectus quidem sequi in
+          odio modi eaque doloribus porro vel temporibus nemo iure ad, repellat
+          soluta architecto.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section
+  id="insight-cards-section"
+  class="border-top border-2 border-dark-subtle overflow-x-hidden p-4"
+>
+  <div class="container">
+    <div class="row text-center g-4">
+      <% articles.forEach((article) => { %>
+        <p><%= article %></p>
+      <% }) %>
+      <!-- <div class="col-sm-1 col-md-6 col-lg-4 col-xl-3">
+        <div
+          class="card card-block bg-light h-100 text-center shadow-sm mb-5 rounded"
+        >
+          <img class="card-image-top" src="/img/inspection_5.jpg" />
+          <div class="card-body align-items-center justify-content-center">
+            <p class="card-title fs-5">Card title</p>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+          </div>
+          <div
+            class="card-footer d-flex justify-content-center align-items-center"
+          >
+            <a
+              target="_blank"
+              href="#"
+              class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
+            >
+              Click here
+            </a>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</section>
+<section
+  id="insight-video-section"
+  class="border-top border-2 border-dark-subtle overflow-x-hidden py-4"
+>
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div
+        class="col-sm-4 col-md-6 col-lg-4"
+        data-example-id="responsive-embed-16by9-iframe-youtube"
+      >
+        <div>
+          <iframe
+            src="https://www.youtube.com/embed/zB4I68XVPzQ?si=Brg83KUATJFPseg3"
+            title="YouTube video player"
+            class="embedded-video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-6 col-lg-3">
+        <p class="fs-4 fw-medium mb-1">Video Title</p>
+        <p class="fs-6 mb-0">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique,
+          eligendi necessitatibus autem, repudiandae delectus quidem sequi in
+          odio modi eaque doloribus porro vel temporibus nemo iure ad, repellat
+          soluta architecto.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<%- include('./links') -%>
+</main>
+<%- include('./partials/footer') -%>

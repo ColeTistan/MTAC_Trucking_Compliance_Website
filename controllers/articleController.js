@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
-const { upload } = require("../services/articleServices");
 const Article = require("../models/Article");
 
 // GET - Retrieve all articles
 const getArticles = async (req, res) => {
   try {
     const articles = await Article.find().exec();
-    res.render("insights", { articles: articles, token: req.cookies.token });
+    res.render("insight", { articles: articles });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -39,10 +38,8 @@ const getArticleById = async (req, res) => {
 const getFeaturedArticles = async (req, res) => {
   try {
     const featuredArticles = await Article.find({ isFeatured: true });
-    console.log(featuredArticles);
     res.render("index", {
       featuredArticles: featuredArticles,
-      token: req.cookies.token,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
