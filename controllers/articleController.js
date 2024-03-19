@@ -6,7 +6,7 @@ const Article = require("../models/Article");
 const getArticles = async (req, res) => {
   try {
     const articles = await Article.find().exec();
-    res.render("news", { articles: articles, token: req.cookies.token });
+    res.render("insights", { articles: articles, token: req.cookies.token });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -36,6 +36,19 @@ const getArticleById = async (req, res) => {
   }
 };
 
+const getFeaturedArticles = async (req, res) => {
+  try {
+    const featuredArticles = await Article.find({ isFeatured: true });
+    console.log(featuredArticles);
+    res.render("index", {
+      featuredArticles: featuredArticles,
+      token: req.cookies.token,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 // GET - create a new article
 const addArticle = async (req, res) => {
   if (!req.cookies.token) res.render("notFound");
@@ -51,10 +64,10 @@ const createArticle = async (req, res) => {
   const img = req.files["image"][0].filename;
   const isFeatured = JSON.parse(req.body.isFeatured);
   let file;
-  if (!req.file)
-    file = undefined;
-  else
-    file = req.files["file"][0].filename;    
+
+  // check for any file(s) uploaded in form
+  if (!req.files["file"]) file = undefined;
+  else file = req.files["file"][0].filename;
 
   try {
     if (title == "" || description == "") {
@@ -126,6 +139,7 @@ const deleteArticleById = async (req, res) => {
 module.exports = {
   getArticles,
   getArticleById,
+  getFeaturedArticles,
   addArticle,
   createArticle,
   updateArticleById,

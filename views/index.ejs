@@ -26,106 +26,30 @@
         <p class="text-left fs-3 fw-medium">New and Noteworthy</p>
       </div>
       <div class="row g-5 text-center mb-3">
+        <% featuredArticles.forEach((article) => { %>
         <div class="col-sm-1 col-md-6 col-lg-4 col-xl-3">
           <div
             class="card card-block bg-light h-100 text-center shadow-sm mb-5 rounded"
           >
-            <img class="card-image-top" src="/img/inspection_5.jpg" />
+            <img class="card-image-top" src="/image/<%= article.image %>" />
             <div class="card-body align-items-center justify-content-center">
-              <p class="card-title fs-5">Card title</p>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-              </p>
+              <p class="card-title fs-5"><%= article.title %></p>
+              <p class="card-text"><%= article.description %></p>
             </div>
             <div
               class="card-footer d-flex justify-content-center align-items-center"
             >
-              <a
-                target="_blank"
-                href="#"
-                class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
-              >
-                Click here
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-1 col-md-6 col-lg-4 col-xl-3">
-          <div
-            class="card card-block bg-light h-100 text-center shadow mb-5 rounded"
-          >
-            <img class="card-image-top" src="/img/inspection_5.jpg" />
-            <div class="card-body align-items-center justify-content-center">
-              <p class="card-title fs-5">Card title</p>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-              </p>
-            </div>
-            <div
-              class="card-footer d-flex justify-content-center align-items-center"
+            <a
+              target="_blank"
+              href="/pdf/<%= article.file %>"
+              class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
             >
-              <a
-                target="_blank"
-                href="#"
-                class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
-              >
-                Click here
-              </a>
+              Click here
+            </a>
             </div>
           </div>
         </div>
-        <div class="col-sm-1 col-md-6 col-lg-4 col-xl-3">
-          <div
-            class="card card-block bg-light h-100 text-center shadow mb-5 rounded"
-          >
-            <img class="card-image-top" src="/img/inspection_5.jpg" />
-            <div class="card-body align-items-center justify-content-center">
-              <p class="card-title fs-5">Card title</p>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-              </p>
-            </div>
-            <div
-              class="card-footer d-flex justify-content-center align-items-center"
-            >
-              <a
-                target="_blank"
-                href="#"
-                class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
-              >
-                Click here
-              </a>
-            </div>
-          </div>
-        </div>
-         <div class="col-sm-1 col-md-6 col-lg-4 col-xl-3">
-          <div
-            class="card card-block bg-light h-100 text-center shadow mb-5 rounded"
-          >
-            <img class="card-image-top" src="/img/inspection_5.jpg" />
-            <div class="card-body align-items-center justify-content-center">
-              <p class="card-title fs-5">Card title</p>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-              </p>
-            </div>
-            <div
-              class="card-footer d-flex justify-content-center align-items-center"
-            >
-              <a
-                target="_blank"
-                href="#"
-                class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
-              >
-                Click here
-              </a>
-            </div>
-          </div>
-        </div>
+        <% }) %>
       </div>
     </div>
   </section>

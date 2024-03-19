@@ -43,6 +43,8 @@ app.use(methodOverride("_method"));
 
 // configure static files
 app.use(express.static(__dirname + "/public"));
+app.use("/image", express.static("./uploads/img"))
+app.use("/pdf", express.static("./uploads/pdf"))
 app.use("/css", express.static("./public/css"));
 app.use("/js", express.static(__dirname + "public/js"));
 app.use("/img", express.static(__dirname + "public/img"));
