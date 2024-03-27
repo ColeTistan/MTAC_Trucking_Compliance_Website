@@ -134,4 +134,9 @@ header {
     height: 40vw;
     object-fit: cover;
   }
+
+  .hero-img {
+    width: 100%;
+    height: 200px; /*or 70%, or what you want*/
+  }
 }
