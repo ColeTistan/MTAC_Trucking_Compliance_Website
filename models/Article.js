@@ -13,7 +13,23 @@ const articleSchema = mongoose.Schema({
     },
     url: {
         type: String,
+        default: "",
+    },
+    image: {
+        type: String,
         required: true
+    },
+    file: {
+        type: String,
+        default: "",
+    },
+    isFeatured: {
+        type: Boolean,
+        default: false
+    },
+    dateCreated: {
+        type: Date,
+        default: Date.now()
     }
 });
 

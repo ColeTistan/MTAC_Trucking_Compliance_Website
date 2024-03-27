@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema(
+  // TODO - Replace current fields with Google OAuth fields
+  // to allow google login for employees
   {
     email: {
       type: String,

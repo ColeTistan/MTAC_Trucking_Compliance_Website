@@ -1,0 +1,89 @@
+<%- include('./partials/header') -%>
+  <section class="container">
+    <div
+      class="col-md-9 col-lg-6 g-3 mx-auto py-3 px-4 mt-5 border rounded bg-light shadow"
+    >
+      <form
+        action="/news/update/<%= article.id %>?_method=PUT"
+        method="post"
+      >
+        <p class="text-left fs-3 fw-medium">Update an Article</p>
+        <!-- <div class="mb-3">
+          <label for="exampleInputTitle1" class="form-label"
+            >Article Title</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputTitle1"
+            aria-describedby="titleHelp"
+            type="hidden"
+            name="title"
+            value="<%# article.title %>"
+          />
+        </div> -->
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputTitle1"
+            aria-describedby="titleHelp"
+            type="hidden"
+            name="title"
+            value="<%= article.title %>"
+            required
+          />
+          <label for="floatingInput">Article Title</label>
+        </div>
+        <!-- <div class="mb-3">
+          <label for="exampleInputDescription1" class="form-label"
+            >Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputDescription1"
+            name="description"
+            value="<%# article.description %>"
+          />
+        </div> -->
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputDescription1"
+            name="description"
+            value="<%= article.description %>"
+            required
+          />
+          <label for="floatingInput">Article Description</label>
+        </div>
+        <!-- <div class="mb-3">
+          <label for="exampleInputDescription1" class="form-label"
+            >Article URL</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputURL1"
+            name="url"
+            value="<%# article.url %>"
+          />
+        </div> -->
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputURL1"
+            name="url"
+            value="<%= article.url %>"
+            required
+          />
+          <label for="floatingInput">Article URL</label>
+        </div>
+        <input type="submit" class="btn btn-primary w-100" />
+      </form>
+    </div>
+  </section>
+</main>
+<%- include('./partials/footer') -%>

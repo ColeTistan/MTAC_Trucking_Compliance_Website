@@ -32,5 +32,5 @@ const verifyUserLogin = async (email, password) => {
 };
 
 module.exports = {
-  verifyUserLogin,
+  verifyUserLogin
 };

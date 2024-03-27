@@ -1,14 +1,11 @@
 const mongoose = require("mongoose");
 const Article = require("../models/Article");
 
-require("../connect");
-
 // GET - Retrieve all articles
 const getArticles = async (req, res) => {
   try {
     const articles = await Article.find().exec();
-    res.render("news", { articles: articles, token: req.cookies.token });
-    console.log(articles);
+    res.render("insight", { articles: articles });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -32,20 +29,45 @@ const getArticleById = async (req, res) => {
     if (article === "") {
       res.status(404).json({ message: "Error: cannot find article data..." });
     }
-    res.json(article);
+    res.render("updateArticle", { article: article, token: req.cookies.token });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
+const getFeaturedArticles = async (req, res) => {
+  try {
+    const featuredArticles = await Article.find({ isFeatured: true });
+    res.render("index", {
+      featuredArticles: featuredArticles,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// GET - create a new article
+const addArticle = async (req, res) => {
+  if (!req.cookies.token) res.render("notFound");
+  else res.render("addArticle", { token: req.cookies.token });
+};
+
 // POST - create a new article
 const createArticle = async (req, res) => {
+  // TODO - Add functionality to handle uploading files
   const title = req.body.title;
   const description = req.body.description;
   const url = req.body.url;
-  console.log(title, description, url);
+  const img = req.files["image"][0].filename;
+  const isFeatured = JSON.parse(req.body.isFeatured);
+  let file;
+
+  // check for any file(s) uploaded in form
+  if (!req.files["file"]) file = undefined;
+  else file = req.files["file"][0].filename;
+
   try {
-    if (title == "" || description == "" || url == "") {
+    if (title == "" || description == "") {
       res.status(400).json({
         message: "Error: all fields are required and must be entered...",
       });
@@ -54,11 +76,14 @@ const createArticle = async (req, res) => {
       title: title,
       description: description,
       url: url,
+      image: img,
+      file: file,
+      isFeatured: isFeatured ? isFeatured : false,
     });
     await newArticle.save();
     res.redirect("/news");
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+  } catch (err) {
+    console.error(err.message);
   }
 };
 
@@ -87,13 +112,10 @@ const updateArticleById = async (req, res) => {
         message: "Error: all fields are required and must be entered...",
       });
     }
-    const updatedArticle = await Article.findByIdAndUpdate(
-      articleId,
-      articleData
-    );
-    res
-      .status(201)
-      .json({ message: "Successfully updated article", data: updatedArticle });
+
+    // updated article field(s) by given id
+    await Article.findByIdAndUpdate(articleId, articleData);
+    res.redirect("/news");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -102,11 +124,10 @@ const updateArticleById = async (req, res) => {
 // DELETE - Delete an article by ID
 const deleteArticleById = async (req, res) => {
   const articleId = req.params.id;
+  console.log(articleId);
   try {
-    const article = await Article.findByIdAndDelete(articleId);
-    res
-      .status(201)
-      .json({ message: "Successfully deleted article", data: article });
+    await Article.deleteOne({ _id: articleId });
+    res.redirect("/news");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -115,6 +136,8 @@ const deleteArticleById = async (req, res) => {
 module.exports = {
   getArticles,
   getArticleById,
+  getFeaturedArticles,
+  addArticle,
   createArticle,
   updateArticleById,
   deleteArticleById,
