@@ -125,9 +125,9 @@ header {
 }
 
 @media screen and (max-width: 768px) {
-  .testimonial-card:not(:first-child) {
+  /* .testimonial-card:not(:first-child) {
     display: none;
-  }
+  } */
 
   .card-image-top {
     width: 100%;
