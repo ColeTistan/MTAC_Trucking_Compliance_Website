@@ -63,6 +63,7 @@ const createArticle = async (req, res) => {
   let file;
 
   // check for any file(s) uploaded in form
+  console.log(req.files["file"]);
   if (!req.files["file"]) file = undefined;
   else file = req.files["file"][0].filename;
 
