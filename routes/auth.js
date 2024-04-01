@@ -19,9 +19,6 @@ const { signUpUser, loginUser } = require("../controllers/authController");
 //   )
 // );
 
-// login Google User
-passport.authenticate("google", { scope: ["profile", "email"] });
-
 // redirect to login failure if auth fails
 const loginFailure = (req, res) => {
   res.send("Error: username or password is incorrect...");
