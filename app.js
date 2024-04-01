@@ -1,10 +1,17 @@
 // Import NPM packages
 const express = require("express");
+const session = require("express-session");
 const cors = require("cors");
 const methodOverride = require("method-override");
+
+const passport = require("passport");
 const dotenv = require("dotenv");
 const path = require("path");
 
+// Import MongoStore that will store / handle user sessions
+const MongoStore = require("connect-mongo");
+
+// Import API routes
 const viewsRouter = require("./routes/views");
 const authRouter = require("./routes/auth");
 const articleRouter = require("./routes/article");
@@ -35,6 +42,11 @@ app.use((req, res, next) => {
 });
 
 // configure packages to handle middleware
+// configure passport middleware
+app.use(passport.initialize());
+// app.use(passport.session());
+
+// configure rest of middleware (express, cors, etc) needed
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());

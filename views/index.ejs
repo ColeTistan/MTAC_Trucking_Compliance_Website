@@ -39,13 +39,23 @@
             <div
               class="card-footer d-flex justify-content-center align-items-center"
             >
-            <a
-              target="_blank"
-              href="/pdf/<%= article.file %>"
-              class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
-            >
-              Click here
-            </a>
+            <% if (!article.file) { %>
+              <a
+                target="_blank"
+                href="<%= article.url %>"
+                class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
+              >
+                Click here
+              </a>
+            <% } else { %>
+              <a
+                target="_blank"
+                href="/pdf/<%= article.file %>"
+                class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
+              >
+                Click here
+              </a>
+              <% } %>
             </div>
           </div>
         </div>
