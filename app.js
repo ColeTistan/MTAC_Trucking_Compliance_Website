@@ -1,6 +1,6 @@
 // Import NPM packages
 const express = require("express");
-const session = require("express-session");
+// const session = require("express-session");
 const cors = require("cors");
 const methodOverride = require("method-override");
 
@@ -43,7 +43,7 @@ app.use((req, res, next) => {
 
 // configure packages to handle middleware
 // configure passport middleware
-app.use(passport.initialize());
+// app.use(passport.initialize());
 // app.use(passport.session());
 
 // configure rest of middleware (express, cors, etc) needed
