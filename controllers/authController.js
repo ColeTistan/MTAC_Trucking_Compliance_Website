@@ -1,6 +1,9 @@
 const bcrypt = require("bcrypt");
-const User = require("../models/User");
+const passport = require("passport");
 const { verifyUserLogin } = require("../services/authService");
+
+// Import User model and Google Auth Strategy
+const User = require("../models/User");
 
 // set constants for authentication
 const salt = 10;
@@ -45,5 +48,5 @@ const loginUser = async (req, res) => {
 
 module.exports = {
   signUpUser,
-  loginUser,
+  loginUser
 };
