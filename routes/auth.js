@@ -31,17 +31,17 @@ authRouter.post("/login", loginUser);
 authRouter.post("/signup", signUpUser);
 
 // Google auth routes with middleware and controller method(s)
-authRouter.get("/login-failure", loginFailure);
-authRouter.get(
-  "/auth/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
-);
-authRouter.get(
-  "/google/callback",
-  passport.authenticate("google", {
-    failureRedirect: "/login-failure",
-    successRedirect: "/",
-  })
-);
+// authRouter.get("/login-failure", loginFailure);
+// authRouter.get(
+//   "/auth/google",
+//   passport.authenticate("google", { scope: ["profile", "email"] })
+// );
+// authRouter.get(
+//   "/google/callback",
+//   passport.authenticate("google", {
+//     failureRedirect: "/login-failure",
+//     successRedirect: "/",
+//   })
+// );
 
 module.exports = authRouter;
