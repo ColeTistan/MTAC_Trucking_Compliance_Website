@@ -1,5 +1,4 @@
 const bcrypt = require("bcrypt");
-// const passport = require("passport");
 const { verifyUserLogin } = require("../services/authService");
 
 // Import User model and Google Auth Strategy
@@ -46,7 +45,40 @@ const loginUser = async (req, res) => {
   }
 };
 
+const getUserData = (id, done) => {
+  User.findById(id, (err, user) => {
+    done(err, user);
+  });
+};
+
+const registerUser = async (profile, done) => {
+  const newUser = {
+    googleId: profile.id,
+    displayName: profile.displayName,
+    firstName: profile.name.givenName,
+    lastName: profile.name.familyName,
+    profileImage: profile.photos[0].value,
+  };
+
+  console.log(newUser, profile.emails[0].value.split("@"));
+
+  try {
+    let user = await User.findOne({ googleId: profile.id });
+
+    if (user) {
+      done(null, user);
+    } else {
+      user = await User.create(newUser);
+      done(null, user);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   signUpUser,
-  loginUser
+  loginUser,
+  getUserData,
+  registerUser,
 };
