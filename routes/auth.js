@@ -6,6 +6,7 @@ const {
   loginUser,
   getUserData,
   registerUser,
+  logOutUser,
 } = require("../controllers/authController");
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
@@ -44,9 +45,13 @@ authRouter.get(
   "/google/callback",
   passport.authenticate("google", {
     failureRedirect: "/login-failure",
-    successRedirect: "/",
-  })
+  }),
+  (req, res) => {
+    res.redirect("/");
+  }
 );
+
+authRouter.get("/logout", logOutUser);
 
 // Persist user data after
 // authentication was successful.

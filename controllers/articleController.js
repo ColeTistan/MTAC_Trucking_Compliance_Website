@@ -48,7 +48,7 @@ const getFeaturedArticles = async (req, res) => {
 
 // GET - create a new article
 const addArticle = async (req, res) => {
-  if (!req.cookies.token) res.render("notFound");
+  if (!req.user) res.render("notFound");
   else res.render("addArticle", { token: req.cookies.token });
 };
 

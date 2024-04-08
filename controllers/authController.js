@@ -45,12 +45,16 @@ const loginUser = async (req, res) => {
   }
 };
 
-const getUserData = (id, done) => {
-  User.findById(id, (err, user) => {
-    done(err, user);
-  });
+// Retrieve user data
+const getUserData = async (id, done) => {
+  User.findById(id)
+    .then((user) => {
+      done(null, user);
+    })
+    .catch(done);
 };
 
+// Create new user if not registered
 const registerUser = async (profile, done) => {
   const newUser = {
     googleId: profile.id,
@@ -60,7 +64,7 @@ const registerUser = async (profile, done) => {
     profileImage: profile.photos[0].value,
   };
 
-  console.log(newUser, profile.emails[0].value.split("@"));
+  // console.log(newUser, profile.emails[0].value.split("@"));
 
   try {
     let user = await User.findOne({ googleId: profile.id });
@@ -72,8 +76,21 @@ const registerUser = async (profile, done) => {
       done(null, user);
     }
   } catch (error) {
-    console.log(error);
+    done(error, null);
   }
+};
+
+const logOutUser = (req, res) => {
+  console.log(req.session);
+  // req.session.destroy((err) => {
+  //   if (err) {
+  //     console.error(err);
+  //     res.send("Error: user logout failed...");
+  //   } else {
+  //     console.log("User logout successful...", req.session);
+  //     res.redirect("/");
+  //   }
+  // });
 };
 
 module.exports = {
@@ -81,4 +98,5 @@ module.exports = {
   loginUser,
   getUserData,
   registerUser,
+  logOutUser,
 };

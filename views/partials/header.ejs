@@ -46,7 +46,7 @@
               <li class="nav-item">
                 <a href="/contact" class="nav-link">Contact</a>
               </li>
-              <!-- <%# if(token) { %>
+              <!-- <%# if(typeof user != 'undefined') { %>
               <li class="nav-item">
                 <a href="/news/create" class="nav-link">Add Article</a>
               </li>
@@ -57,10 +57,10 @@
                   >User Manual</a
                 >
               </li> -->
-              <!-- <li class="nav-item">
-            <a href="/logout" class="nav-link">Logout</a>
-          </li> -->
-              <!-- <%# } else { %> -->
+              <li class="nav-item">
+                <a href="/logout" class="nav-link">Logout</a>
+              </li>
+               <!-- <%# } else { %> -->
               <li class="nav-item">
                 <a href="/auth/google" class="nav-link">Employee Login</a>
               </li>

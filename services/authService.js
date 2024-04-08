@@ -31,6 +31,11 @@ const verifyUserLogin = async (email, password) => {
   }
 };
 
+// const isLoggedIn = (req, res, next) => {
+//   next() ? req.user : res.status(401).send("401: Access Denied");
+// };
+
 module.exports = {
-  verifyUserLogin
+  verifyUserLogin,
+  // isLoggedIn
 };
