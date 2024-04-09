@@ -41,21 +41,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// configure packages to handle middleware
-// configure passport middleware
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET_KEY,
-    resave: false,
-    saveUninitialized: true,
-    store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI,
-    }),
-  })
-);
-app.use(passport.initialize());
-app.use(passport.session());
-
 // configure rest of middleware (express, cors, etc) needed
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -71,6 +56,26 @@ app.use("/css", express.static("./public/css"));
 app.use("/js", express.static(__dirname + "public/js"));
 app.use("/img", express.static(__dirname + "public/img"));
 app.use("/assets", express.static(__dirname + "public/assets"));
+
+// configure packages to handle middleware
+// configure passport middleware
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET_KEY,
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+    }),
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
 
 // use api and view routes
 app.use(authRouter);

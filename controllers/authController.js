@@ -82,15 +82,15 @@ const registerUser = async (profile, done) => {
 
 const logOutUser = (req, res) => {
   console.log(req.session);
-  // req.session.destroy((err) => {
-  //   if (err) {
-  //     console.error(err);
-  //     res.send("Error: user logout failed...");
-  //   } else {
-  //     console.log("User logout successful...", req.session);
-  //     res.redirect("/");
-  //   }
-  // });
+  req.session.destroy((err) => {
+    if (err) {
+      console.error(err);
+      res.send("Error: user logout failed...");
+    } else {
+      console.log("User logout successful...", req.session);
+      res.redirect("/");
+    }
+  });
 };
 
 module.exports = {

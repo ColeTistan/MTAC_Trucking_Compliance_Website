@@ -2,34 +2,31 @@ const express = require("express");
 const viewsRouter = express.Router();
 
 viewsRouter.get("/", (req, res) => {
-  let user = req.user;
-  let token = req.cookies.token;
-  console.log(user, token);
-  res.render("index", { token: req.cookies.token, user });
+  res.render("/");
 });
 
 viewsRouter.get("/about", (req, res) => {
-  res.render("about", { token: req.cookies.token, user: req.user });
+  res.render("about", { token: req.cookies.token });
 });
 
 viewsRouter.get("/service", (req, res) => {
-  res.render("service", { token: req.cookies.token, user: req.user });
+  res.render("service", { token: req.cookies.token });
 });
 
 viewsRouter.get("/insight", (req, res) => {
-  res.render("insight", { token: req.cookies.token, user: req.user });
+  res.render("insight", { token: req.cookies.token });
 });
 
 viewsRouter.get("/news", (req, res) => {
-  res.render("news", { token: req.cookies.token, user: req.user });
+  res.render("news", { token: req.cookies.token });
 });
 
 viewsRouter.get("/contact", (req, res) => {
-  res.render("contact", { token: req.cookies.token, user: req.user });
+  res.render("contact", { token: req.cookies.token });
 });
 
 // viewsRouter.get("/login", (req, res) => {
-//   res.render("login", { token: req.cookies.token, user: req.user });
+//   res.render("login", { token: req.cookies.token });
 // });
 
 viewsRouter.get("*", (req, res) => {
