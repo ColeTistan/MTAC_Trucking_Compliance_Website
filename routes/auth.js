@@ -2,8 +2,6 @@
 const express = require("express");
 const authRouter = express.Router();
 const {
-  signUpUser,
-  loginUser,
   getUserData,
   registerUser,
   logOutUser,
@@ -27,11 +25,8 @@ passport.use(
 
 // redirect to login failure if auth fails
 const loginFailure = (req, res) => {
-  res.send("Error: username or password is incorrect...");
+  res.send("Error: username or password is incorrect (Or maybe you're not an employee)...");
 };
-
-authRouter.post("/login", loginUser);
-authRouter.post("/signup", signUpUser);
 
 // Google auth routes with middleware and controller method(s)
 authRouter.get("/login-failure", loginFailure);
@@ -44,6 +39,7 @@ authRouter.get(
 authRouter.get(
   "/google/callback",
   passport.authenticate("google", {
+    successRedirect: "/",
     failureRedirect: "/login-failure",
   }),
   (req, res) => {

@@ -1,55 +1,17 @@
-const bcrypt = require("bcrypt");
-const { verifyUserLogin } = require("../services/authService");
+const {
+  validateEmployeeUser,
+} = require("../services/authService");
 
 // Import User model and Google Auth Strategy
 const User = require("../models/User");
-
-// set constants for authentication
-const salt = 10;
-
-// Sign up new user and hash password set
-const signUpUser = async (req, res) => {
-  // getting our data from frontend
-  const { email, password: plainTextPassword } = req.body;
-
-  // encrypting our password to store in database
-  const password = await bcrypt.hash(plainTextPassword, salt);
-  try {
-    // storing our user data into database
-    const response = await User.create({
-      email,
-      password,
-    });
-    console.log(response);
-    return res.redirect("/");
-  } catch (error) {
-    console.log(JSON.stringify(error));
-    if (error.code === 11000) {
-      return res.send({ status: "error", error: "email already exists" });
-    }
-    throw error;
-  }
-};
-
-// login user and verify user with json web token
-const loginUser = async (req, res) => {
-  const { email, password } = req.body;
-  // we made a function to verify our user login
-  const response = await verifyUserLogin(email, password);
-  if (response.status === "ok") {
-    // storing our JWT web token as a cookie in our browser
-    res.cookie("token", token, { maxAge: 2 * 60 * 60 * 1000, httpOnly: true }); // maxAge: 2 hours
-    res.redirect("/");
-  } else {
-    res.json(response);
-  }
-};
 
 // Retrieve user data
 const getUserData = async (id, done) => {
   User.findById(id)
     .then((user) => {
-      done(null, user);
+      let isEmployee = validateEmployeeUser(user);
+      if (!isEmployee) done(null, false);
+      else done(null, user);
     })
     .catch(done);
 };
@@ -62,9 +24,8 @@ const registerUser = async (profile, done) => {
     firstName: profile.name.givenName,
     lastName: profile.name.familyName,
     profileImage: profile.photos[0].value,
+    email: profile.emails[0].value,
   };
-
-  // console.log(newUser, profile.emails[0].value.split("@"));
 
   try {
     let user = await User.findOne({ googleId: profile.id });
@@ -72,8 +33,14 @@ const registerUser = async (profile, done) => {
     if (user) {
       done(null, user);
     } else {
-      user = await User.create(newUser);
-      done(null, user);
+      if (!validateEmployeeUser(newUser)) {
+        done(null, false);
+      } else {
+        // create user if user email has employee address
+        user = await User.create(newUser);
+        // validate user email is an employee address
+        done(null, user);
+      }
     }
   } catch (error) {
     done(error, null);
@@ -81,21 +48,17 @@ const registerUser = async (profile, done) => {
 };
 
 const logOutUser = (req, res) => {
-  console.log(req.session);
   req.session.destroy((err) => {
     if (err) {
       console.error(err);
       res.send("Error: user logout failed...");
     } else {
-      console.log("User logout successful...", req.session);
       res.redirect("/");
     }
   });
 };
 
 module.exports = {
-  signUpUser,
-  loginUser,
   getUserData,
   registerUser,
   logOutUser,
