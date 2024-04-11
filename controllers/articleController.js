@@ -1,14 +1,26 @@
 const mongoose = require("mongoose");
 const Article = require("../models/Article");
 
-// GET - Retrieve all articles
-const getArticles = async (req, res) => {
+const getArticleData = async (req, res) => {
   try {
     const articles = await Article.find().exec();
-    res.render("insight", { articles: articles });
+    return articles;
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+};
+
+// GET - Retrieve all articles for home page
+const getInsightArticles = async (req, res) => {
+  let articles = await getArticleData();
+  res.render("insight", { articles: articles });
+};
+
+// GET - Retrieve all articles for dashboard page
+const getDashboardArticles = async (req, res) => {
+  let dashboardArticles = await getArticleData();
+  console.log(dashboardArticles);
+  res.render("dashboard", { articles: dashboardArticles });
 };
 
 // GET - Retrieve article by ID
@@ -135,7 +147,8 @@ const deleteArticleById = async (req, res) => {
 };
 
 module.exports = {
-  getArticles,
+  getInsightArticles,
+  getDashboardArticles,
   getArticleById,
   getFeaturedArticles,
   addArticle,

@@ -34,6 +34,18 @@
             id="navbarSupportedContent"
           >
             <ul class="navbar-nav text-center ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="/insight" class="nav-link">Insights</a>
+              </li>
+              <li class="nav-item">
+                <a href="/contact" class="nav-link">Contact</a>
+              </li>
               <% if (user) { %>
               <li class="nav-item dropdown">
                 <a
@@ -45,9 +57,9 @@
                 >
                   <%= user.displayName %>
                 </a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-lg-end">
                   <li>
-                    <a href="/news/create" class="dropdown-item">Add Article</a>
+                    <a href="/dashboard" class="dropdown-item">Dashboard</a>
                   </li>
                   <li>
                     <a
@@ -67,18 +79,6 @@
                 <a href="/auth/google" class="nav-link">Employee Login</a>
               </li>
               <% } %>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/about">About</a>
-              </li>
-              <li class="nav-item">
-                <a href="/insight" class="nav-link">Insights</a>
-              </li>
-              <li class="nav-item">
-                <a href="/contact" class="nav-link">Contact</a>
-              </li>
             </ul>
           </div>
         </div>

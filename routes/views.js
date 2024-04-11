@@ -6,28 +6,28 @@ viewsRouter.get("/", (req, res) => {
 });
 
 viewsRouter.get("/about", (req, res) => {
-  res.render("about", { token: req.cookies.token });
+  res.render("about");
 });
 
 viewsRouter.get("/service", (req, res) => {
-  res.render("service", { token: req.cookies.token });
+  res.render("service");
 });
 
 viewsRouter.get("/insight", (req, res) => {
-  res.render("insight", { token: req.cookies.token });
+  res.render("insight");
 });
 
 viewsRouter.get("/news", (req, res) => {
-  res.render("news", { token: req.cookies.token });
+  res.render("news");
 });
 
 viewsRouter.get("/contact", (req, res) => {
-  res.render("contact", { token: req.cookies.token });
+  res.render("contact");
 });
 
-// viewsRouter.get("/login", (req, res) => {
-//   res.render("login", { token: req.cookies.token });
-// });
+viewsRouter.get("/dashboard", (req, res) => {
+  res.render("dashboard");
+})
 
 viewsRouter.get("*", (req, res) => {
   res.render("notFound");
