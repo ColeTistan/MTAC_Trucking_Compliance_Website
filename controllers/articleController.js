@@ -19,7 +19,6 @@ const getInsightArticles = async (req, res) => {
 // GET - Retrieve all articles for dashboard page
 const getDashboardArticles = async (req, res) => {
   let dashboardArticles = await getArticleData();
-  console.log(dashboardArticles);
   res.render("dashboard", { articles: dashboardArticles });
 };
 
@@ -66,16 +65,16 @@ const addArticle = async (req, res) => {
 
 // POST - create a new article
 const createArticle = async (req, res) => {
-  // TODO - Add functionality to handle uploading files
   const title = req.body.title;
   const description = req.body.description;
   const url = req.body.url;
   const img = req.files["image"][0].filename;
-  const isFeatured = JSON.parse(req.body.isFeatured);
+  const isFeatured = JSON.parse(
+    true ? req.body.isFeatured !== undefined : false
+  );
   let file;
 
   // check for any file(s) uploaded in form
-  console.log(req.files["file"]);
   if (!req.files["file"]) file = undefined;
   else file = req.files["file"][0].filename;
 
@@ -94,7 +93,7 @@ const createArticle = async (req, res) => {
       isFeatured: isFeatured ? isFeatured : false,
     });
     await newArticle.save();
-    res.redirect("/news");
+    res.redirect("/dashboard");
   } catch (err) {
     console.error(err.message);
   }
@@ -103,11 +102,14 @@ const createArticle = async (req, res) => {
 // PUT - Update an existing article by ID
 const updateArticleById = async (req, res) => {
   // get article Id and request data being updated
+  // TODO - Add Image, PDF file and isFeatured input groups
+  // with validation 
   const articleId = req.params.id;
   let articleData = {
     title: req.body.title,
     description: req.body.description,
     url: req.body.url,
+    image: req.files["image"][0].filename,
   };
 
   try {
@@ -140,7 +142,7 @@ const deleteArticleById = async (req, res) => {
   console.log(articleId);
   try {
     await Article.deleteOne({ _id: articleId });
-    res.redirect("/news");
+    res.redirect("/dashboard");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
