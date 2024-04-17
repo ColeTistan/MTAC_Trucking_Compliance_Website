@@ -68,13 +68,18 @@ const createArticle = async (req, res) => {
   const title = req.body.title;
   const description = req.body.description;
   const url = req.body.url;
-  const img = req.files["image"][0].filename;
   const isFeatured = JSON.parse(
     true ? req.body.isFeatured !== undefined : false
   );
-  let file;
+  let file, img;
 
   // check for any file(s) uploaded in form
+  if (!req.files["image"])
+    res.status(400).json({
+      message: "Error: image field is required and must be entered...",
+    });
+  img = req.files["image"][0].filename;
+
   if (!req.files["file"]) file = undefined;
   else file = req.files["file"][0].filename;
 
@@ -82,6 +87,11 @@ const createArticle = async (req, res) => {
     if (title == "" || description == "") {
       res.status(400).json({
         message: "Error: all fields are required and must be entered...",
+      });
+    }
+    if (!url && !file) {
+      res.status(400).json({
+        message: "Error: a URL or PDF file must be filled in...",
       });
     }
     const newArticle = Article({
@@ -103,14 +113,18 @@ const createArticle = async (req, res) => {
 const updateArticleById = async (req, res) => {
   // get article Id and request data being updated
   // TODO - Add Image, PDF file and isFeatured input groups
-  // with validation 
+  // with validation
   const articleId = req.params.id;
+  console.log(req.files["image"][0].filename);
   let articleData = {
     title: req.body.title,
     description: req.body.description,
     url: req.body.url,
     image: req.files["image"][0].filename,
+    file: req.files["file"][0].filename,
+    isFeatured: JSON.parse(true ? req.body.isFeatured !== undefined : false),
   };
+  console.log(req.files["image"][0].filename);
 
   try {
     if (!mongoose.isValidObjectId(articleId) || articleId === "") {
@@ -121,7 +135,8 @@ const updateArticleById = async (req, res) => {
     if (
       articleData.title == "" ||
       articleData.description == "" ||
-      articleData.url == ""
+      articleData.url == "" ||
+      articleData.file == undefined
     ) {
       res.status(400).json({
         message: "Error: all fields are required and must be entered...",
@@ -130,7 +145,7 @@ const updateArticleById = async (req, res) => {
 
     // updated article field(s) by given id
     await Article.findByIdAndUpdate(articleId, articleData);
-    res.redirect("/news");
+    res.redirect("/dashboard");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

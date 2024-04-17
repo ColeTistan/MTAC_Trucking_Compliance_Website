@@ -20,6 +20,6 @@ articleRouter.get(`${baseUrl}/create`, isLoggedIn, addArticle);
 articleRouter.get(`/insight`, getInsightArticles);
 articleRouter.get(`/dashboard`, isLoggedIn, getDashboardArticles);
 articleRouter.post(`${baseUrl}/`, isLoggedIn, uploadFormFields, createArticle);
-articleRouter.put(`${baseUrl}/update/:id`, isLoggedIn, updateArticleById);
+articleRouter.put(`${baseUrl}/update/:id`, isLoggedIn, uploadFormFields, updateArticleById);
 articleRouter.delete(`${baseUrl}/delete/:id`, isLoggedIn, deleteArticleById);
 module.exports = articleRouter;
