@@ -3,6 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const cors = require("cors");
 const methodOverride = require("method-override");
+const flash = require("connect-flash");
 
 const passport = require("passport");
 const dotenv = require("dotenv");
@@ -58,7 +59,6 @@ app.use("/img", express.static(__dirname + "public/img"));
 app.use("/assets", express.static(__dirname + "public/assets"));
 
 // configure packages to handle middleware
-// configure passport middleware
 app.use(
   session({
     secret: process.env.SESSION_SECRET_KEY,
@@ -69,6 +69,9 @@ app.use(
     }),
   })
 );
+app.use(flash());
+
+// configure passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
