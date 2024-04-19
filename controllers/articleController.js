@@ -112,38 +112,43 @@ const createArticle = async (req, res) => {
 // PUT - Update an existing article by ID
 const updateArticleById = async (req, res) => {
   // get article Id and request data being updated
-  // TODO - Add Image, PDF file and isFeatured input groups
   // with validation
   const articleId = req.params.id;
-  console.log(req.files["image"][0].filename);
-  let articleData = {
-    title: req.body.title,
-    description: req.body.description,
-    url: req.body.url,
-    image: req.files["image"][0].filename,
-    file: req.files["file"][0].filename,
-    isFeatured: JSON.parse(true ? req.body.isFeatured !== undefined : false),
-  };
-  console.log(req.files["image"][0].filename);
+
+  if (!req.files["image"])
+    // Check if image was entered
+    res.status(400).json({
+      message: "Error: image field is required and must be entered...",
+    });
+  else image = req.files["image"][0].filename;
+
+  if (!req.files["file"]) {
+    // check if user has entered a PDF file
+    file = undefined;
+  } else {
+    if (req.body.url !== "") {
+      // checks if both url and PDF files are inputted
+      res.status(400).json({
+        message: "Error: Either a url or PDF file can be entered...",
+      });
+    } else {
+      file = req.files["file"][0].filename;
+    }
+  }
 
   try {
     if (!mongoose.isValidObjectId(articleId) || articleId === "") {
-      res
-        .status(404)
-        .json({ message: "Error: Object ID not found or invalid..." });
+      res.redirect("/notFound");
     }
-    if (
-      articleData.title == "" ||
-      articleData.description == "" ||
-      articleData.url == "" ||
-      articleData.file == undefined
-    ) {
-      res.status(400).json({
-        message: "Error: all fields are required and must be entered...",
-      });
-    }
-
-    // updated article field(s) by given id
+    // updated article field(s) by given id if validated
+    let articleData = {
+      title: req.body.title,
+      description: req.body.description,
+      url: req.body.url,
+      image: image,
+      file: file,
+      isFeatured: JSON.parse(true ? req.body.isFeatured !== undefined : false),
+    };
     await Article.findByIdAndUpdate(articleId, articleData);
     res.redirect("/dashboard");
   } catch (error) {
@@ -154,7 +159,7 @@ const updateArticleById = async (req, res) => {
 // DELETE - Delete an article by ID
 const deleteArticleById = async (req, res) => {
   const articleId = req.params.id;
-  console.log(articleId);
+  console.log(`Deleting article ID: ${articleId}`);
   try {
     await Article.deleteOne({ _id: articleId });
     res.redirect("/dashboard");

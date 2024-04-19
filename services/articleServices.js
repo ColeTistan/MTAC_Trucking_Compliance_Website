@@ -14,10 +14,12 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
 const uploadFormFields = upload.fields([
   { name: "image", maxCount: 1 },
   { name: "file", maxCount: 1 },
 ]);
+
 module.exports = {
   uploadFormFields,
 };
