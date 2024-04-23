@@ -5,6 +5,20 @@
       <p class="fs-2 align-left m-0">Dashboard</p>
       <a href="/news/create" class="btn btn-outline-secondary">Add Article</a>
     </div>
+    <% if (successMessage && successMessage.length > 0) { %>
+    <div
+      class="alert alert-<%= successMessage[1] %> alert-dismissible fade show"
+      role="alert"
+    >
+      <%= successMessage[0] %>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    <% } %>
     <table class="table table-striped align-middle shadow-sm">
       <thead class="table-dark">
         <tr>

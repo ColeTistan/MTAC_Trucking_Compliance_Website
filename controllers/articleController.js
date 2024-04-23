@@ -29,9 +29,7 @@ const getArticleById = async (req, res) => {
     // Checks if ID is valid mongoDB object ID
     // if not, throw 404 Not Found error
     if (!mongoose.isValidObjectId(articleId)) {
-      res.status(404).json({
-        message: "Error: cannot find article data due to invalid object ID...",
-      });
+      res.redirect("/notFound");
     }
 
     // Find article by object ID and check if it exists
@@ -40,7 +38,7 @@ const getArticleById = async (req, res) => {
     if (article === "") {
       res.status(404).json({ message: "Error: cannot find article data..." });
     }
-    res.render("updateArticle", { article: article, token: req.cookies.token });
+    res.render("updateArticle", { article: article });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -74,25 +72,26 @@ const createArticle = async (req, res) => {
   let file, img;
 
   // check for any file(s) uploaded in form
-  if (!req.files["image"])
-    res.status(400).json({
-      message: "Error: image field is required and must be entered...",
-    });
+  if (req.files["image"] === undefined) {
+    res.locals.errorMessage = req.flash("errorMessage", [
+      "Error: image field is required and must be entered...",
+      "danger",
+    ]);
+    return res.redirect("/news/create");
+  }
+
   img = req.files["image"][0].filename;
 
   if (!req.files["file"]) file = undefined;
   else file = req.files["file"][0].filename;
 
   try {
-    if (title == "" || description == "") {
-      res.status(400).json({
-        message: "Error: all fields are required and must be entered...",
-      });
-    }
     if (!url && !file) {
-      res.status(400).json({
-        message: "Error: a URL or PDF file must be filled in...",
-      });
+      res.locals.errorMessage = req.flash("errorMessage", [
+        "Error: a URL or PDF file must be filled in...",
+        "danger",
+      ]);
+      return res.redirect("/news/create");
     }
     const newArticle = Article({
       title: title,
@@ -103,6 +102,7 @@ const createArticle = async (req, res) => {
       isFeatured: isFeatured ? isFeatured : false,
     });
     await newArticle.save();
+    req.flash("successMessage", ["Added new article successfully!", "success"]);
     res.redirect("/dashboard");
   } catch (err) {
     console.error(err.message);
@@ -115,12 +115,14 @@ const updateArticleById = async (req, res) => {
   // with validation
   const articleId = req.params.id;
 
-  if (!req.files["image"])
+  if (!req.files["image"]) {
     // Check if image was entered
-    res.status(400).json({
-      message: "Error: image field is required and must be entered...",
-    });
-  else image = req.files["image"][0].filename;
+    res.locals.errorMessage = req.flash("errorMessage", [
+      "Error: image field is required and must be entered...",
+      "danger",
+    ]);
+    return res.redirect(`/news/update/${articleId}`);
+  } else image = req.files["image"][0].filename;
 
   if (!req.files["file"]) {
     // check if user has entered a PDF file
@@ -128,9 +130,11 @@ const updateArticleById = async (req, res) => {
   } else {
     if (req.body.url !== "") {
       // checks if both url and PDF files are inputted
-      res.status(400).json({
-        message: "Error: Either a url or PDF file can be entered...",
-      });
+      res.locals.errorMessage = req.flash("errorMessage", [
+        "Error: Either a url or PDF file can be entered...",
+        "danger",
+      ]);
+      return res.redirect(`/news/update/${articleId}`);
     } else {
       file = req.files["file"][0].filename;
     }
@@ -159,7 +163,6 @@ const updateArticleById = async (req, res) => {
 // DELETE - Delete an article by ID
 const deleteArticleById = async (req, res) => {
   const articleId = req.params.id;
-  console.log(`Deleting article ID: ${articleId}`);
   try {
     await Article.deleteOne({ _id: articleId });
     res.redirect("/dashboard");
