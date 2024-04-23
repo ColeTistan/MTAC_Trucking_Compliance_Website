@@ -3,6 +3,20 @@
     <div
       class="col-md-9 col-lg-6 g-3 mx-auto py-3 px-4 mt-5 border rounded bg-light shadow"
     >
+    <% if (errorMessage && errorMessage.length > 0) { %>
+      <div
+        class="alert alert-<%= errorMessage[1] %> alert-dismissible fade show"
+        role="alert"
+      >
+        <%= errorMessage[0] %>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      <% } %>
       <form
         action="/news/update/<%= article.id %>?_method=PUT"
         method="post"

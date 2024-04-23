@@ -27,7 +27,7 @@ viewsRouter.get("/contact", (req, res) => {
 
 viewsRouter.get("/dashboard", (req, res) => {
   res.render("dashboard");
-})
+});
 
 viewsRouter.get("*", (req, res) => {
   res.render("notFound");
