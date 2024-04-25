@@ -2,10 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-ul {
-  @apply flex justify-between gap-5 text-gray-800;
+* {
+  @apply text-gray-200;
 }
 
-li {
-    @apply duration-200 transition-all hover:bg-amber-300 px-4 py-2 rounded-md outline-none flex;
+ul {
+  @apply flex justify-between gap-x-6;
+}
+
+a {
+  @apply transition-all duration-300 text-gray-200 hover:bg-amber-400 hover:text-gray-800 font-medium tracking-wide text-lg px-4 py-2 rounded-lg outline-none flex;
+    /* @apply duration-200 transition-all hover:bg-amber-400 hover:text-gray-800 font-medium trackfont-medium tracking-wide text-lg px-4 py-2 rounded-md outline-none flexing-wide text-lg px-4 py-2 rounded-md outline-none flex; */
 }
