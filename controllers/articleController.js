@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Article = require("../models/Article");
+const { createFlashMessage } = require("../services/articleServices");
 
 const getArticleData = async (req, res) => {
   try {
@@ -71,28 +72,41 @@ const createArticle = async (req, res) => {
   );
   let file, img;
 
+  if (!url && !file) {
+    createFlashMessage(
+      req,
+      "errorMessage",
+      "Error: a URL or PDF file must be filled in..."
+    );
+    return res.redirect("/news/create");
+  }
+
+  if (!req.files["file"]) file = undefined;
+  else file = req.files["file"][0].filename;
+
+  if (url !== "" && file !== undefined) {
+    createFlashMessage(
+      req,
+      "errorMessage",
+      "Error: both a URL or PDF file can't be filled in..."
+    );
+    return res.redirect("/news/create");
+  }
+
   // check for any file(s) uploaded in form
+  console.log(req.files["image"]);
   if (req.files["image"] === undefined) {
-    res.locals.errorMessage = req.flash("errorMessage", [
-      "Error: image field is required and must be entered...",
-      "danger",
-    ]);
+    createFlashMessage(
+      req,
+      "errorMessage",
+      "Error: image field is required and must be entered..."
+    );
     return res.redirect("/news/create");
   }
 
   img = req.files["image"][0].filename;
 
-  if (!req.files["file"]) file = undefined;
-  else file = req.files["file"][0].filename;
-
   try {
-    if (!url && !file) {
-      res.locals.errorMessage = req.flash("errorMessage", [
-        "Error: a URL or PDF file must be filled in...",
-        "danger",
-      ]);
-      return res.redirect("/news/create");
-    }
     const newArticle = Article({
       title: title,
       description: description,
@@ -154,6 +168,7 @@ const updateArticleById = async (req, res) => {
       isFeatured: JSON.parse(true ? req.body.isFeatured !== undefined : false),
     };
     await Article.findByIdAndUpdate(articleId, articleData);
+    req.flash("successMessage", ["Added new article successfully!", "success"]);
     res.redirect("/dashboard");
   } catch (error) {
     res.status(500).json({ message: error.message });

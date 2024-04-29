@@ -3,10 +3,8 @@ const multer = require("multer");
 // Setup storage of PDF files being uploaded
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    if (file.mimetype != "application/pdf")
-      cb(null, "./uploads/img")
-    else
-      cb(null, "./uploads/pdf");
+    if (file.mimetype != "application/pdf") cb(null, "./uploads/img");
+    else cb(null, "./uploads/pdf");
   },
   filename: (req, file, cb) => {
     cb(null, `${file.fieldname}_${Date.now()}_${file.originalname}`);
@@ -20,6 +18,13 @@ const uploadFormFields = upload.fields([
   { name: "file", maxCount: 1 },
 ]);
 
+const createFlashMessage = (req, messageType, message) => {
+  req.flash(messageType, [message, "danger"])
+    ? messageType !== "successMessage"
+    : req.flash(messageType, [message, "success"]);
+};
+
 module.exports = {
   uploadFormFields,
+  createFlashMessage,
 };
