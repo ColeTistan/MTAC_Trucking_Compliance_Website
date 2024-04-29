@@ -29,6 +29,10 @@ viewsRouter.get("/dashboard", (req, res) => {
   res.render("dashboard");
 });
 
+viewsRouter.get("/login", (req, res) => {
+  res.render("login");
+});
+
 viewsRouter.get("*", (req, res) => {
   res.render("notFound");
 });
