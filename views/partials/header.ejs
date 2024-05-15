@@ -46,7 +46,7 @@
               <li class="nav-item">
                 <a href="/contact" class="nav-link">Contact</a>
               </li>
-              <% if (user) { %>
+              <% if (typeof token === "undefined") { %>
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -55,7 +55,7 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <%= user.displayName %>
+                  Employee Login
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg-end">
                   <li>
@@ -76,7 +76,7 @@
               </li>
               <% } else { %>
               <li class="nav-item">
-                <a href="/auth/google" class="nav-link">Employee Login</a>
+                <a href="/login" class="nav-link">Employee Login</a>
               </li>
               <% } %>
             </ul>

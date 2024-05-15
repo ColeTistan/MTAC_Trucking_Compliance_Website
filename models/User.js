@@ -1,23 +1,12 @@
 const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema(
   {
-    googleId: {
+    email: {
       type: String,
       required: true,
+      unique: true,
     },
-    displayName: {
-      type: String,
-      required: true,
-    },
-    firstName: {
-      type: String,
-      required: true,
-    },
-    lastName: {
-      type: String,
-      required: true,
-    },
-    profileImage: {
+    password: {
       type: String,
       required: true,
     },
@@ -25,11 +14,6 @@ const userSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-    }
   },
   {
     collection: "employeeUsers",

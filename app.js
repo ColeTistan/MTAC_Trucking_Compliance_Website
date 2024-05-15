@@ -86,7 +86,7 @@ app.use((req, res, next) => {
   res.locals.successMessage = req.flash("successMessage");
   res.locals.errorMessage = req.flash("errorMessage");
   next();
-})
+});
 
 // use api and view routes
 app.use(authRouter);

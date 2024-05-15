@@ -12,14 +12,13 @@ const {
   getInsightArticles,
   getDashboardArticles, 
 } = require("../controllers/articleController");
-const { isLoggedIn } = require("../services/authService");
 
 articleRouter.get(`/`, getFeaturedArticles);
-articleRouter.get(`${baseUrl}/update/:id`, isLoggedIn, getArticleById);
-articleRouter.get(`${baseUrl}/create`, isLoggedIn, addArticle);
+articleRouter.get(`${baseUrl}/update/:id`, getArticleById);
+articleRouter.get(`${baseUrl}/create`, addArticle);
 articleRouter.get(`/insight`, getInsightArticles);
-articleRouter.get(`/dashboard`, isLoggedIn, getDashboardArticles);
-articleRouter.post(`${baseUrl}/`, isLoggedIn, uploadFormFields, createArticle);
-articleRouter.put(`${baseUrl}/update/:id`, isLoggedIn, uploadFormFields, updateArticleById);
-articleRouter.delete(`${baseUrl}/delete/:id`, isLoggedIn, deleteArticleById);
+articleRouter.get(`/dashboard`, getDashboardArticles);
+articleRouter.post(`${baseUrl}/`, uploadFormFields, createArticle);
+articleRouter.put(`${baseUrl}/update/:id`, uploadFormFields, updateArticleById);
+articleRouter.delete(`${baseUrl}/delete/:id`, deleteArticleById);
 module.exports = articleRouter;
