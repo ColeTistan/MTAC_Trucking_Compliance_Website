@@ -46,7 +46,7 @@
               <li class="nav-item">
                 <a href="/contact" class="nav-link">Contact</a>
               </li>
-              <% if (typeof token === "undefined") { %>
+              <% if (typeof token !== "undefined") { %>
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -55,7 +55,7 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Employee Login
+                  Content Management
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg-end">
                   <li>
@@ -68,9 +68,6 @@
                       target="_blank"
                       >User Manual</a
                     >
-                  </li>
-                  <li>
-                    <a href="/logout" class="dropdown-item">Logout</a>
                   </li>
                 </ul>
               </li>
