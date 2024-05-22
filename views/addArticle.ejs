@@ -58,11 +58,15 @@
               <label for="formFile" class="form-label">PDF File</label>
               <input class="form-control" type="file" name="file" id="formFile">
             </div>
-            <div class="form-check">
+            <!-- <div class="form-check">
               <input class="form-check-input" type="checkbox" value="false" name="isFeatured" id="flexCheckDefault">
               <label class="form-check-label" for="flexCheckDefault">
                 Featured Article?
               </label>
+            </div> -->
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" name="isFeatured" id="flexSwitchCheckDefault">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Featured Article?</label>
             </div>
             <br>
             <input type="submit" class="btn btn-primary w-100" />

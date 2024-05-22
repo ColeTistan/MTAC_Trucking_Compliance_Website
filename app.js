@@ -77,7 +77,7 @@ app.use(passport.session());
 
 // store user(s) logged into session to locals
 app.use((req, res, next) => {
-  res.locals.user = req.user;
+  res.locals.token = req.cookies.token;
   next();
 });
 

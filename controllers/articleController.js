@@ -58,7 +58,7 @@ const getFeaturedArticles = async (req, res) => {
 
 // GET - create a new article
 const addArticle = async (req, res) => {
-  if (!req.user) res.render("notFound");
+  if (!req.cookies.token) res.render("notFound");
   else res.render("addArticle", { token: req.cookies.token });
 };
 
@@ -72,7 +72,11 @@ const createArticle = async (req, res) => {
   );
   let file, img;
 
+  if (!req.files["file"]) file = undefined;
+  else file = req.files["file"][0].filename;
+
   if (!url && !file) {
+    console.log(!file, !url);
     createFlashMessage(
       req,
       "errorMessage",
@@ -81,8 +85,6 @@ const createArticle = async (req, res) => {
     return res.redirect("/news/create");
   }
 
-  if (!req.files["file"]) file = undefined;
-  else file = req.files["file"][0].filename;
 
   if (url !== "" && file !== undefined) {
     createFlashMessage(
@@ -168,7 +170,7 @@ const updateArticleById = async (req, res) => {
       isFeatured: JSON.parse(true ? req.body.isFeatured !== undefined : false),
     };
     await Article.findByIdAndUpdate(articleId, articleData);
-    req.flash("successMessage", ["Added new article successfully!", "success"]);
+    req.flash("successMessage", ["Updated article successfully!", "success"]);
     res.redirect("/dashboard");
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -180,6 +182,7 @@ const deleteArticleById = async (req, res) => {
   const articleId = req.params.id;
   try {
     await Article.deleteOne({ _id: articleId });
+    req.flash("successMessage", ["Deleted article successfully!", "success"]);
     res.redirect("/dashboard");
   } catch (error) {
     res.status(500).json({ message: error.message });

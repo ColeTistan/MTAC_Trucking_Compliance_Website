@@ -17,8 +17,8 @@ viewsRouter.get("/insight", (req, res) => {
   res.render("insight", { token: req.cookies.token });
 });
 
-viewsRouter.get("/news", (req, res) => {
-  res.render("news", { token: req.cookies.token });
+viewsRouter.get("/news/create", (req, res) => {
+  res.render("addArticle", { token: req.cookies.token });
 });
 
 viewsRouter.get("/contact", (req, res) => {
