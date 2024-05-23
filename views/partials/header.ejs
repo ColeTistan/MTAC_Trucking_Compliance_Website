@@ -46,7 +46,11 @@
               <li class="nav-item">
                 <a href="/contact" class="nav-link">Contact</a>
               </li>
-              <% if (token) { %>
+              <% if (!token) { %>
+                <li class="nav-item">
+                  <a href="/login" class="nav-link">Employee Login</a>
+                </li>
+              <% } else { %>
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -70,10 +74,6 @@
                     >
                   </li>
                 </ul>
-              </li>
-              <% } else { %>
-              <li class="nav-item">
-                <a href="/login" class="nav-link">Employee Login</a>
               </li>
               <% } %>
             </ul>

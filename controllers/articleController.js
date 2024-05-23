@@ -19,6 +19,7 @@ const getInsightArticles = async (req, res) => {
 
 // GET - Retrieve all articles for dashboard page
 const getDashboardArticles = async (req, res) => {
+  if (!req.cookies.token) res.render("notFound");
   let dashboardArticles = await getArticleData();
   res.render("dashboard", { articles: dashboardArticles });
 };
@@ -84,7 +85,6 @@ const createArticle = async (req, res) => {
     );
     return res.redirect("/news/create");
   }
-
 
   if (url !== "" && file !== undefined) {
     createFlashMessage(
