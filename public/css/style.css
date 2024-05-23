@@ -59,6 +59,10 @@ header {
   gap: 5rem;
 }
 
+.table {
+  table-layout: fixed;
+}
+
 @media screen and (min-width: 568px) {
   .cards-wrapper {
     display: flex;

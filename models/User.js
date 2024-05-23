@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema(
-  // TODO - Replace current fields with Google OAuth fields
-  // to allow google login for employees
   {
     email: {
       type: String,
@@ -12,9 +10,13 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
   },
-  { 
-    collection: "users"
+  {
+    collection: "employeeUsers",
   }
 );
 

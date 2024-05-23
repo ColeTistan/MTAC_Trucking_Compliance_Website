@@ -3,25 +3,26 @@
     <div
       class="col-md-9 col-lg-6 g-3 mx-auto py-3 px-4 mt-5 border rounded bg-light shadow"
     >
+    <% if (errorMessage && errorMessage.length > 0) { %>
+      <div
+        class="alert alert-<%= errorMessage[1] %> alert-dismissible fade show"
+        role="alert"
+      >
+        <%= errorMessage[0] %>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      <% } %>
       <form
         action="/news/update/<%= article.id %>?_method=PUT"
         method="post"
+        enctype="multipart/form-data"
       >
         <p class="text-left fs-3 fw-medium">Update an Article</p>
-        <!-- <div class="mb-3">
-          <label for="exampleInputTitle1" class="form-label"
-            >Article Title</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            id="exampleInputTitle1"
-            aria-describedby="titleHelp"
-            type="hidden"
-            name="title"
-            value="<%# article.title %>"
-          />
-        </div> -->
         <div class="form-floating mb-3">
           <input
             type="text"
@@ -35,19 +36,7 @@
           />
           <label for="floatingInput">Article Title</label>
         </div>
-        <!-- <div class="mb-3">
-          <label for="exampleInputDescription1" class="form-label"
-            >Description</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            id="exampleInputDescription1"
-            name="description"
-            value="<%# article.description %>"
-          />
-        </div> -->
-        <div class="form-floating mb-3">
+         <div class="form-floating mb-3">
           <input
             type="text"
             class="form-control"
@@ -58,18 +47,6 @@
           />
           <label for="floatingInput">Article Description</label>
         </div>
-        <!-- <div class="mb-3">
-          <label for="exampleInputDescription1" class="form-label"
-            >Article URL</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            id="exampleInputURL1"
-            name="url"
-            value="<%# article.url %>"
-          />
-        </div> -->
         <div class="form-floating mb-3">
           <input
             type="text"
@@ -77,10 +54,22 @@
             id="exampleInputURL1"
             name="url"
             value="<%= article.url %>"
-            required
           />
           <label for="floatingInput">Article URL</label>
         </div>
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Image File</label>
+          <input class="form-control" type="file" name="image" id="formFile" value="<%= article.image %>">
+        </div>
+        <div class="mb-3">
+          <label for="formFile" class="form-label">PDF File</label>
+          <input class="form-control" type="file" name="file" id="formFile" value="<%= article.file %>">
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" name="isFeatured" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault">Featured Article?</label>
+        </div>
+        <br />
         <input type="submit" class="btn btn-primary w-100" />
       </form>
     </div>

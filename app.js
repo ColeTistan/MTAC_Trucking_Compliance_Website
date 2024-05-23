@@ -1,8 +1,9 @@
 // Import NPM packages
 const express = require("express");
-// const session = require("express-session");
+const session = require("express-session");
 const cors = require("cors");
 const methodOverride = require("method-override");
+const flash = require("connect-flash");
 
 const passport = require("passport");
 const dotenv = require("dotenv");
@@ -41,11 +42,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// configure packages to handle middleware
-// configure passport middleware
-// app.use(passport.initialize());
-// app.use(passport.session());
-
 // configure rest of middleware (express, cors, etc) needed
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -61,6 +57,36 @@ app.use("/css", express.static("./public/css"));
 app.use("/js", express.static(__dirname + "public/js"));
 app.use("/img", express.static(__dirname + "public/img"));
 app.use("/assets", express.static(__dirname + "public/assets"));
+
+// configure packages to handle middleware
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET_KEY,
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+    }),
+  })
+);
+app.use(flash());
+
+// configure passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// store user(s) logged into session to locals
+app.use((req, res, next) => {
+  res.locals.token = req.cookies.token;
+  next();
+});
+
+// store flash messages to locals
+app.use((req, res, next) => {
+  res.locals.successMessage = req.flash("successMessage");
+  res.locals.errorMessage = req.flash("errorMessage");
+  next();
+});
 
 // use api and view routes
 app.use(authRouter);

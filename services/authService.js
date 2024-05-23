@@ -19,9 +19,8 @@ const verifyUserLogin = async (email, password) => {
       token = jwt.sign(
         { id: user._id, username: user.email, type: "user" },
         JWT_SECRET,
-        { expiresIn: "2h" }
+        { expiresIn: "30m" }
       );
-      console.log(token);
       return { status: "ok", data: token };
     }
     return { status: "error", error: "invalid password" };
