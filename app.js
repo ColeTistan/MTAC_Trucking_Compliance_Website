@@ -54,9 +54,9 @@ app.use(express.static(__dirname + "/public"));
 app.use("/image", express.static("./uploads/img"));
 app.use("/pdf", express.static("./uploads/pdf"));
 app.use("/css", express.static("./public/css"));
-app.use("/js", express.static(__dirname + "public/js"));
-app.use("/img", express.static(__dirname + "public/img"));
-app.use("/assets", express.static(__dirname + "public/assets"));
+app.use("/js", express.static(__dirname + "/public/js"));
+app.use("/img", express.static(__dirname + "/public/img"));
+app.use("/assets", express.static(__dirname + "/public/assets"));
 
 // configure packages to handle middleware
 app.use(

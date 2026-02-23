@@ -144,3 +144,72 @@ header {
     height: 200px; /*or 70%, or what you want*/
   }
 }
+
+.brand-logo {
+  padding: 0.5rem;
+  width: 175px;
+  height: auto;
+}
+
+/* Bulma Navbar Mobile Customizations */
+@media screen and (max-width: 1023px) {
+  .navbar-menu {
+    text-align: center;
+  }
+  
+  .navbar-item {
+    justify-content: center;
+  }
+  
+  .navbar-end .navbar-item {
+    justify-content: center;
+  }
+  
+  .buttons.is-centered {
+    justify-content: center !important;
+  }
+  
+  .navbar-end .navbar-item .buttons {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .navbar-end .navbar-item .button {
+    width: auto;
+    margin: 0 0.25rem;
+  }
+}
+
+/* Navbar brand logo sizing */
+.navbar-brand .brand-logo img {
+  max-height: 3.25rem;
+  width: auto;
+}
+
+/* Ensure navbar items are properly spaced */
+.navbar-item {
+  color: white;
+}
+
+/* Apply hover effects only to navigation links, not buttons */
+.navbar-start .navbar-item:hover,
+.navbar-item:not(.has-dropdown):not(:has(.button)):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffc107;
+}
+
+/* Prevent button containers from having hover effects */
+.navbar-item:has(.button):hover,
+.navbar-item .button:hover {
+  background-color: transparent;
+}
+
+/* Keep button's own hover styles intact */
+.navbar-item .button {
+  background-color: #ffc107;
+}
+
+.navbar-item .button:hover {
+  /* Let Bulma's button hover styles take precedence */
+  background-color: #ffca29;
+}
