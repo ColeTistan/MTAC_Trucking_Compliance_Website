@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "nodemon": "nodemon app.js"
+    "nodemon": "nodemon app.js",
+    "dev": "concurrently \"nodemon app.js\" \"browser-sync start --proxy 'localhost:5000' --files 'views/**/*.ejs, public/**/*.css, public/**/*.js' --port 3001 --no-open\"",
+    "dev:simple": "nodemon app.js --watch views --watch public --watch routes --watch controllers"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +33,8 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "concurrently": "^9.2.1",
     "nodemon": "^3.0.1"
   }
 }

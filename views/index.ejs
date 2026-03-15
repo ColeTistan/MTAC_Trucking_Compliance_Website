@@ -1,18 +1,18 @@
 <%- include('./partials/header') -%>
   <section id="company-safety-solutions">
     <div class="container">
-      <div class="row text-center">
-        <div class="col-md-6 col-lg-4">
+      <div class="columns is-multiline px-4 has-text-centered is-size-5 mt-3 mb-5">
+        <div class="column is-12-mobile is-6-tablet is-4-desktop">
           <img class="p-2" src="/img/tools.svg" alt="tools" />
-          <p class="fs-5">Compliance and Safety Consulting</p>
+          <p>Compliance and Safety Consulting</p>
         </div>
-        <div class="col-md-6 col-lg-4">
+        <div class="column is-12-mobile is-6-tablet is-4-desktop">
           <img class="p-2" src="/img/checklist.svg" alt="checklist" />
-          <p class="fs-5">Safety Audit Preparation &amp; Representation</p>
+          <p>Safety Audit Preparation &amp; Representation</p>
         </div>
-        <div class="col-md-12 col-lg-4">
+        <div class="column is-12-mobile is-6-tablet is-4-desktop">
           <img class="p-2" src="/img/book.svg" alt="book" />
-          <p class="fs-5">
+          <p>
             Customized training in all compliance areas, including record keeping requirements,
             load securement, and more.
             <br />(Virtual &amp; In-Person)
@@ -21,42 +21,40 @@
       </div>
     </div>
   </section>
-  <section class="border-top border-2 border-dark-subtle overflow-x-hidden p-3">
+  <section style="border-top: 2px solid #dee2e6;" class="clipped py-5">
     <div class="container">
-      <div>
-        <p class="text-left fs-5 fw-medium mb-0">Featured</p>
-        <p class="text-left fs-3 fw-medium">New and Noteworthy</p>
+      <div class="mb-5 px-4">
+        <p class="has-text-left is-size-4 has-text-weight-medium mb-2">Featured</p>
+        <p class="has-text-left is-size-3 has-text-weight-medium">New and Noteworthy</p>
       </div>
-      <div class="row g-5 text-center mb-3">
+      <div class="columns is-multiline px-4">
         <% featuredArticles.forEach((article) => { %>
-        <div class="col-sm-1 col-md-6 col-lg-4 col-xl-3">
-          <div
-            class="card card-block bg-light h-100 text-center shadow-sm mb-5 rounded"
-          >
-            <img class="card-img-top" src="/image/<%= article.image %>" />
-            <div class="card-body align-items-center justify-content-center">
-              <p class="card-title fs-5"><%= article.title %></p>
-              <p class="card-text"><%= article.description %></p>
+        <div class="column is-12-mobile is-6-tablet is-4-desktop">
+          <div class="card has-equal-height">
+            <div style="width: 100%;" class="card-image">
+              <img src="/image/<%= article.image %>" alt="<%= article.title %>" class="card-img-top" />
             </div>
-            <div
-              class="card-footer d-flex justify-content-center align-items-center"
-            >
-            <% if (!article.file) { %>
-              <a
-                target="_blank"
-                href="<%= article.url %>"
-                class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
-              >
-                Click here
-              </a>
-            <% } else { %>
-              <a
-                target="_blank"
-                href="/pdf/<%= article.file %>"
-                class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
-              >
-                Click here
-              </a>
+            <div class="card-content">
+              <p class="title is-5"><%= article.title %></p>
+              <p class="content is-size-6"><%= article.description %></p>
+            </div>
+            <div class="card-footer">
+              <% if (!article.file) { %>
+                <a
+                  target="_blank"
+                  href="<%= article.url %>"
+                  class="card-footer-item button is-warning"
+                >
+                  Read Article
+                </a>
+              <% } else { %>
+                <a
+                  target="_blank"
+                  href="/pdf/<%= article.file %>"
+                  class="card-footer-item button is-warning"
+                >
+                  Download PDF
+                </a>
               <% } %>
             </div>
           </div>

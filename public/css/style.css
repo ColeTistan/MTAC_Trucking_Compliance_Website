@@ -15,7 +15,7 @@ header {
 }
 
 .navbar-nav .nav-item .nav-link:hover,
-.link-light:hover {
+.link-light:hover  {
   color: #ffc000;
 }
 
@@ -212,4 +212,109 @@ header {
 .navbar-item .button:hover {
   /* Let Bulma's button hover styles take precedence */
   background-color: #ffca29;
+}
+
+/* Card Grid Layout Styles */
+.has-equal-height {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.has-equal-height .card-content {
+  flex-grow: 1;
+}
+
+.has-equal-height .card-footer {
+  margin-top: auto;
+}
+
+/* Ensure consistent image sizing in cards */
+.card-image {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  height: 200px;
+}
+
+.card-image .card-img-top,
+.card-image img {
+  height: 100% !important;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.card-image .image {
+  overflow: hidden;
+  margin: 0 !important;
+}
+
+.card-image figure {
+  margin: 0 !important;
+}
+
+/* Card spacing and shadows */
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Card footer button styling - remove top border radius */
+.card-footer .button {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+}
+
+/* Ensure button takes full width in card footer */
+.card-footer-item.button {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+  margin: 0;
+}
+
+/* Mobile and tablet responsive spacing */
+@media screen and (max-width: 1023px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .columns.is-multiline {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .column {
+    padding: 0.75rem;
+  }
+}
+
+/* Mobile specific adjustments */
+@media screen and (max-width: 768px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .column.is-12-mobile {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .card {
+    margin-bottom: 1rem;
+  }
 }
