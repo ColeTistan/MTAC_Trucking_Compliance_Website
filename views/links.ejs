@@ -1,38 +1,34 @@
-<%
-  let linkData = [
-    { id: 1, name: "US DOT | FMCSA", imgUrl: "/img/US-DOT.png", linkUrl: "https://www.fmcsa.dot.gov/" },
-    { id: 2, name: "Drug and Alcohol Clearinghouse", imgUrl: "/img/drug.png", linkUrl: "https://clearinghouse.fmcsa.dot.gov/" },
-    { id: 3, name: "Safety Management System", imgUrl: "/img/safety.jpg", linkUrl: "https://ai.fmcsa.dot.gov/SMS" },
-    { id: 4, name: "Electronic Code of Federal Regulation", imgUrl: "/img/ecfr.png", linkUrl: "https://www.ecfr.gov/current/title-49" },
-    { id: 5, name: "NJ Motor Vehicle Commission", imgUrl: "/img/njmvc.png", linkUrl: "https://www.state.nj.us/mvc/" },
-    { id: 6, name: "PA DOT", imgUrl: "/img/pa-dot.png", linkUrl: "https://www.penndot.gov" },
-    { id: 7, name: "DE DOT", imgUrl: "/img/deldot.png", linkUrl: "https://www.dmv.de.gov/" },
-    { id: 8, name: "NJ State Police", imgUrl: "/img/njsp.png", linkUrl: "https://www.njsp.org/" },
-    { id: 9, name: "Tips for Truck Drivers", imgUrl: "/img/tips.png", linkUrl: "https://www.lanierlawfirm.com/50-tips-for-truck-drivers/" },
-    { id: 10, name: "Commercial Vehicle Safety Alliance: CVSA", imgUrl: "/img/csva.png", linkUrl: "https://www.cvsa.org/" },
-  ];
-%>
-<section class="border-top border-2 border-dark-subtle overflow-x-hidden pt-3">
+<section style="border-top: 2px solid #dee2e6;" class="clipped py-5">
   <div class="container">
-    <p class="text-left fs-3 fw-medium pt-3">External Resources</p>
-    <div class="row g-5 pb-5" id="card-links">
-      <% for (let index in linkData) { let link = linkData[index]; %>
-      <div class="col-sm-1 col-md-4 col-lg-3">
+    <div class="mb-5 px-4">
+      <p class="has-text-left is-size-3 has-text-weight-medium mb-2">Helpful Links</p>
+    </div>
+    <div class="columns is-multiline px-4">
+      <% for (let index in links) { let link = links[index]; %>
+      <div class="column is-12-mobile is-6-tablet is-3-desktop">
         <div
           id="<%= link.id %>-<%= link.name %>"
-          class="card card-block bg-light h-100 text-center shadow mb-5 rounded"
+          class="card has-background-light has-equal-height"
+          style="box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;"
         >
-          <div class="card-body align-items-center justify-content-center">
-            <img class="card-image mb-3" src="<%= link.imgUrl %>" />
-            <p class="card-title fs-5"><%= link.name %></p>
+          <div>
+            <img
+              class="pt-6"
+              alt="<%= link.name %>"
+              src="<%= link.imgUrl %>"
+              style="display: block; margin-left: auto; margin-right: auto; max-height: 80%; max-width: 80%; height: auto; width: auto; object-fit: contain;"
+            />
           </div>
-          <div class="card-footer d-flex justify-content-center align-items-center">
+          <div class="card-content">
+            <p class="title is-5 has-text-centered has-text-dark"><%= link.name %></p>
+          </div>
+          <div class="card-footer">
             <a
               target="_blank"
               href="<%= link.linkUrl %>"
-              class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
+              class="card-footer-item button is-warning"
             >
-              Click here
+              Visit Site
             </a>
           </div>
         </div>

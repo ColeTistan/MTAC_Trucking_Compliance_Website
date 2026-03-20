@@ -1,44 +1,48 @@
 <%- include('./partials/header') %>
 <section id="insight-video-section" class="py-1">
   <div class="container">
-    <h3 class="align-left">Industry Insights</h3>
+    <h3 class="has-text-left is-size-3 has-text-weight-medium mt-3">Industry Insights</h3>
   </div>
 </section>
 <section
   id="insight-cards-section"
-  class="border-2 border-dark-subtle overflow-x-hidden p-4"
+  class="clipped py-5"
 >
   <div class="container">
-    <div class="row text-center g-4">
+    <div class="columns is-multiline px-4">
       <% articles.forEach((article) => { %>
-        <div class="col-sm-1 col-md-6 col-lg-4 col-xl-3">
+        <div class="column is-12-mobile is-6-tablet is-4-desktop">
           <div
-            class="card card-block bg-light h-100 text-center shadow-sm mb-5 rounded"
+            class="card has-equal-height"
           >
-            <img class="card-image-top" src="/image/<%= article.image %>" />
-            <div class="card-body align-items-center justify-content-center">
-              <p class="card-title fs-5"><%= article.title %></p>
-              <p class="card-text"><%= article.description %></p>
+            <div style="width: 100%;" class="card-image">
+              <img
+                class="card-image-top"
+                src="/image/<%= article.image %>"
+                alt="<%= article.title %>"
+              />
             </div>
-            <div
-              class="card-footer d-flex justify-content-center align-items-center"
-            >
-            <% if (!article.url) { %>
-              <a
-                target="_blank"
-                href="/pdf/<%= article.file %>"
-                class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
-              >
-                Click here
-              </a>
-            <% } else { %>
-              <a
-                target="_blank"
-                href="<%= article.url %>"
-                class="bg-primary text-light fw-medium text-decoration-none rounded w-50 p-2"
-              >
-                Click here
-              </a>
+            <div class="card-content">
+              <p class="title is-5"><%= article.title %></p>
+              <p class="content is-size-6"><%= article.description %></p>
+            </div>
+            <div class="card-footer">
+              <% if (!article.file) { %>
+                <a
+                  target="_blank"
+                  href="<%= article.url %>"
+                  class="card-footer-item button is-warning"
+                >
+                  Read Article
+                </a>
+              <% } else { %>
+                <a
+                  target="_blank"
+                  href="/pdf/<%= article.file %>"
+                  class="card-footer-item button is-warning"
+                >
+                  Download PDF
+                </a>
               <% } %>
             </div>
           </div>

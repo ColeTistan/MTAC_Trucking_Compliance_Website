@@ -1,5 +1,5 @@
 const express = require("express");
-const { testimonialData } = require("../public/assets/data");
+const { testimonialData, linkData } = require("../public/assets/data");
 const viewsRouter = express.Router();
 
 viewsRouter.get("/", (req, res) => {
@@ -15,10 +15,6 @@ viewsRouter.get("/about", (req, res) => {
 
 viewsRouter.get("/service", (req, res) => {
   res.render("service", { token: res.locals.token });
-});
-
-viewsRouter.get("/insight", (req, res) => {
-  res.render("insight", { token: res.locals.token });
 });
 
 viewsRouter.get("/news/create", (req, res) => {

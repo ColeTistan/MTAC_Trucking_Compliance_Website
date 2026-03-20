@@ -13,8 +13,13 @@ const getArticleData = async (req, res) => {
 
 // GET - Retrieve all articles for home page
 const getInsightArticles = async (req, res) => {
+  const { linkData } = require("../public/assets/data");
   let articles = await getArticleData();
-  res.render("insight", { articles: articles });
+  res.render("insight", { 
+    articles: articles, 
+    links: linkData, 
+    token: res.locals.token 
+  });
 };
 
 // GET - Retrieve all articles for dashboard page
