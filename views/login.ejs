@@ -6,8 +6,35 @@
   <body class="bg-light d-flex flex-column min-vh-100">
     <header class="m-0"><%- include('./partials/header') -%></header>
     <main>
-      <div class="container my-5">
-        <div class="col-md-9 col-lg-6 g-3 mx-auto py-3 px-4 border rounded bg-light shadow">
+      <section class="hero is-medium is-light">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <div class="columns is-2">
+              <div class="column box is-4 is-offset-4 has-background-white p-5" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;">
+                <h1 class="title is-2">Employee Login</h1>
+                <form action="/login" method="post">
+                  <div class="field">
+                    <p class="control">
+                      <input class="input is-medium has-background-light has-text-dark" type="email" name="email" placeholder="Email" required />
+                    </p>
+                  </div>
+                  <div class="field">
+                    <p class="control">
+                      <input class="input is-medium has-background-light has-text-dark" type="password" name="password" placeholder="Password" required />
+                    </p>
+                  </div>
+                  <div class="field">
+                    <p class="control">
+                      <button class="button is-warning is-fullwidth is-medium has-text-dark" type="submit">Login</button>
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        <!-- <div class="col-md-9 col-lg-6 g-3 mx-auto py-3 px-4 border rounded bg-light shadow">
           <form action="/login" method="post">
             <p class="text-left fs-3 fw-semibold pb-3">Login</p>
             <div class="form-floating mb-3">
@@ -35,60 +62,7 @@
             </div>
             <button type="submit" class="btn btn-primary w-100">Login</button>
           </form>
-        </div>
-        <!-- <div>
-          <form
-            class="col-md-9 col-lg-6 g-3 mx-auto py-3 px-4 border rounded bg-light shadow m-5"
-            target="_blank"
-            action="https://formsubmit.co/mtactruckingcompliance@gmail.com"
-            method="POST"
-          >
-            <p class="text-center p-3">Contact Us</p>
-            <div class="form-floating mb-3">
-              <input
-                type="text"
-                name="user_name"
-                class="form-control"
-                id="floatingInput"
-                placeholder="John Doe"
-                required
-              />
-              <label for="floatingInput">Full name</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input
-                type="email"
-                name="email"
-                class="form-control"
-                id="floatingInputTwo"
-                placeholder="johndoe@gmail.com"
-                required
-              />
-              <label for="floatingInput">Email address</label>
-            </div>
-            <div class="col-12 mb-3">
-              <div class="form-floating">
-                <textarea
-                  name="message"
-                  class="form-control"
-                  placeholder="Enter a message"
-                  id="floatingTextarea2"
-                  style="height: 150px"
-                  required
-                ></textarea>
-                <label for="floatingTextarea2">Message</label>
-              </div>
-            </div>
-            <div
-              class="col-12 d-flex justify-content-center align-items-center"
-            >
-              <button type="submit" class="btn btn-primary w-100">
-                Submit
-              </button>
-            </div>
-          </form>
         </div> -->
-      </div>
     </main>
     <footer class="footer mt-auto py-3 bg-dark text-light">
       <%- include('./partials/footer') -%>

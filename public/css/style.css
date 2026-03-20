@@ -1,12 +1,12 @@
-body::-webkit-scrollbar {
+body::-webkit-scrollbar, .modal-card-body::-webkit-scrollbar {
   width: 0.5rem;
 }
 
-body::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track, .modal-card-body::-webkit-scrollbar-track {
   background-color: #262626;
 }
 
-body::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb, .modal-card-body::-webkit-scrollbar-thumb {
   background-color: #ffc100;
 }
 
@@ -260,13 +260,13 @@ header {
 
 /* Card spacing and shadows */
 .card {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-4px);
 }
 
 /* Card footer button styling - remove top border radius */
@@ -317,4 +317,49 @@ header {
   .card {
     margin-bottom: 1rem;
   }
+}
+
+/* Custom input text color styling */
+.input.has-text-dark {
+  color: #363636 !important;
+}
+
+.input.has-text-dark::placeholder {
+  color: #7a7a7a !important;
+  opacity: 1;
+}
+
+.input:focus {
+  border-color: #ffc107 !important;
+  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25) !important;
+}
+
+/* Custom table text color styling */
+.table.has-text-dark,
+.table.has-text-dark td,
+.table.has-text-dark th {
+  color: #363636 !important;
+}
+
+.table.has-text-dark tbody tr:hover {
+  background-color: rgba(255, 193, 7, 0.1) !important;
+}
+
+/* Custom textarea text color styling */
+.textarea.has-text-dark {
+  color: #363636 !important;
+}
+
+.textarea.has-text-dark::placeholder {
+  color: #7a7a7a !important;
+  opacity: 1;
+}
+
+.textarea:focus {
+  border-color: #ffc107 !important;
+  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25) !important;
+}
+
+.input {
+  margin-bottom: 0.5rem !important;
 }

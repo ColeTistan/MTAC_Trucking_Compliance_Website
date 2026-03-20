@@ -1,418 +1,57 @@
-<section class="bg-light text-dark text-center">
-  <div
-    id="carouselExampleRide2"
-    class="carousel carousel-dark slide p-0"
-    data-bs-ride="true"
-  >
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="cards-wrapper">
-          <div class="card testimonial-card">
-            <div class="card-body">
-              <h5 class="card-title">C3 Logistics</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">
-                Henry S. Papiano, President
-              </h6>
-              <p class="card-text text-truncate">
-                M-Tac Trucking Compliance is one of the best compliance
-                companies out there. I was concerned about our DOT score and
-                wanted to do something to improve our standards. M-Tac Trucking
-                Compliance came in and did a thorough evaluation of our company
-                and found some key areas that needed room for improvement.
-                Within months, our scores and inspections improved and our
-                customers were happy. Without M-Tac Trucking Compliance, I was
-                afraid I would not be able to continue. I recommend M-Tac
-                Trucking Compliance to everyone that has a DOT number.
-              </p>
-              <!-- Modal -->
-              <div
-                class="modal fade"
-                id="exampleModal"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">
-                        C3 Logistics
-                        <br />
-                        <small class="fs-6 text-secondary"
-                          >Henry S. Papiano, President
-                        </small>
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
+<section class="clipped py-5" style="border-top: 2px solid #dee2e6;">
+    <div class="container">
+        <h2 class="title has-text-centered has-text-dark">
+            Testimonials
+        </h2>
+        <div class="columns is-multiline is-centered">
+            <% testimonials.forEach((testimonial, index) => { %>
+            <div class="column is-12-mobile is-6-tablet is-4-desktop">
+                <div class="card has-equal-height">
+                    <div class="card-content">
+                        <p class="content is-size-5">
+                            "<%= testimonial.quote.slice(0, 135) + "..." %>"
+                        </p>
+                        <p class="has-text-right is-size-6 has-text-weight-medium">
+                            - <%= testimonial.personName %>, <%= testimonial.companyName %>
+                        </p>
                     </div>
-                    <div class="modal-body">
-                      M-Tac Trucking Compliance is one of the best compliance
-                      companies out there. I was concerned about our DOT score
-                      and wanted to do something to improve our standards. M-Tac
-                      Trucking Compliance came in and did a thorough evaluation
-                      of our company and found some key areas that needed room
-                      for improvement. Within months, our scores and inspections
-                      improved and our customers were happy. Without M-Tac
-                      Trucking Compliance, I was afraid I would not be able to
-                      continue. I recommend M-Tac Trucking Compliance to
-                      everyone that has a DOT number.
+                    <div class="card-footer">
+                        <button class="button is-warning is-fullwidth js-modal-trigger" data-target="modal-testimonial-<%= index %>">
+                            Read Full Testimonial
+                        </button>
                     </div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <!-- Button trigger modal -->
-            <div
-              class="card-footer d-flex justify-content-center align-items-center"
-            >
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
-                See Full Testimony
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="cards-wrapper">
-          <div class="card testimonial-card">
-            <div class="card-body">
-              <h5 class="card-title">National Freight Industries</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">
-                Lee Robledo, Vice President of Safety Technology, Innovation &
-                Accident Investigations
-              </h6>
-              <p class="card-text text-truncate">
-                I am thrilled to share my experience with M-Tac Truck Trucking
-                Compliance LLC service. From the moment we engaged their
-                services, NFI was met with professionalism, expertise, and a
-                commitment to ensuring our trucking operations were fully
-                compliant with regulations. Brian demonstrated an in-depth
-                understanding of the ever-evolving landscape of trucking
-                regulations, keeping us informed and prepared for any changes.
-                His attention to detail and proactive approach saved us both
-                time and potential headaches, allowing us to focus on our core
-                business. Moreover, Brian was readily available to address our
-                questions and concerns, providing clear and concise guidance
-                that instilled confidence in our compliance efforts. His
-                dedication to helping us navigate the complexities of the
-                industry has proven invaluable, and I wholeheartedly recommend
-                his compliance services to any organization in need of reliable
-                and comprehensive regulatory support.
-              </p>
-              <!-- Modal -->
-              <div
-                class="modal fade"
-                id="exampleModal2"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel2"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">
-                        National Freight Industries
-                        <br />
-                        <small class="fs-6 text-secondary"
-                          >Lee Robledo, Vice President of Safety Technology,
-                          Innovation & Accident Investigations</small
-                        >
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
+                
+                <!-- Modal for this testimonial -->
+                <div id="modal-testimonial-<%= index %>" class="modal">
+                    <div class="modal-background"></div>
+                    <div class="modal-card">
+                        <header class="modal-card-head" style="margin-bottom: 0;">
+                            <p class="modal-card-title has-text-light" style="line-height: 1.5;">
+                                <strong><%= testimonial.personName.split(",")[0] %></strong><br>
+                                <%= testimonial.personName.split(",")[1] %><br>
+                                <%= testimonial.companyName %>
+                            </p>
+                            <button class="delete" aria-label="close"></button>
+                        </header>
+                        <section class="modal-card-body has-text-light">
+                            <div class="content">
+                                <blockquote class="is-size-6">
+                                    "<%= testimonial.quote %>"
+                                </blockquote>
+                                <p class="has-text-right is-size-6 has-text-weight-medium mt-4">
+                                    <strong>- <%= testimonial.personName %></strong><br>
+                                    <%= testimonial.companyName %>
+                                </p>
+                            </div>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button class="button" aria-label="close">Close</button>
+                        </footer>
                     </div>
-                    <div class="modal-body">
-                      I am thrilled to share my experience with M-Tac Truck
-                      Trucking Compliance LLC service. From the moment we
-                      engaged their services, NFI was met with professionalism,
-                      expertise, and a commitment to ensuring our trucking
-                      operations were fully compliant with regulations. Brian
-                      demonstrated an in-depth understanding of the
-                      ever-evolving landscape of trucking regulations, keeping
-                      us informed and prepared for any changes. His attention to
-                      detail and proactive approach saved us both time and
-                      potential headaches, allowing us to focus on our core
-                      business. Moreover, Brian was readily available to address
-                      our questions and concerns, providing clear and concise
-                      guidance that instilled confidence in our compliance
-                      efforts. His dedication to helping us navigate the
-                      complexities of the industry has proven invaluable, and I
-                      wholeheartedly recommend his compliance services to any
-                      organization in need of reliable and comprehensive
-                      regulatory support.
-                    </div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
-            <!-- Button trigger modal -->
-            <div
-              class="card-footer d-flex justify-content-center align-items-center"
-            >
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal2"
-              >
-                See Full Testimony
-              </button>
-            </div>
-          </div>
+            <% }) %>
         </div>
-      </div>
-      <div class="carousel-item">
-        <div class="cards-wrapper">
-          <div class="card testimonial-card">
-            <div class="card-body">
-              <h5 class="card-title">Hudson News Distributors LLC</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">
-                Sarita Rowner, Corporate Compliance Officer
-              </h6>
-              <p class="card-text text-truncate">
-                My name is Sarita and I work for Hudson News Distributors LLC
-                where I handle the Driver DOT compliance. Brian at M-Tac
-                Trucking Compliance came on as a consultant to help resolve some
-                issues with our compliance. He has taught us about Data Q's as
-                well as how to calculate our violations weights. Brian has
-                helped train our drivers on safety and DVIRs and we could not be
-                happier. He has been an incredible help and we have kept him on
-                annually as a consultant to help us with all aspects of our
-                driver training and compliance.
-              </p>
-              <!-- Modal -->
-
-              <div
-                class="modal fade"
-                id="exampleModal3"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel3"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">
-                        Hudson News Distributors LLC
-                        <br />
-                        <small class="fs-6 text-secondary"
-                          >Sarita Rowner, Corporate Compliance Officer</small
-                        >
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      My name is Sarita and I work for Hudson News Distributors
-                      LLC where I handle the Driver DOT compliance. Brian at
-                      M-Tac Trucking Compliance came on as a consultant to help
-                      resolve some issues with our compliance. He has taught us
-                      about Data Q's as well as how to calculate our violations
-                      weights. Brian has helped train our drivers on safety and
-                      DVIRs and we could not be happier. He has been an
-                      incredible help and we have kept him on annually as a
-                      consultant to help us with all aspects of our driver
-                      training and compliance.
-                    </div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Button trigger modal -->
-            <div
-              class="card-footer d-flex justify-content-center align-items-center"
-            >
-              `
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal3"
-              >
-                See Full Testimony
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="cards-wrapper">
-          <div class="card testimonial-card">
-            <div class="card-body">
-              <h5 class="card-title">Zeisloft</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">
-                Chuck Zeisloft, Managing Partner
-              </h6>
-              <p class="card-text text-truncate">
-                We have been using MTAC's DOT and FMCSA compliance services for
-                over two years now, and the impact on our operations has been
-                phenomenal. Thanks to their expert guidance, our Out-of-Service
-                (OOS) scores have significantly reduced, which not only enhances
-                our company's reputation but also ensures we are meeting
-                industry standards for safety and efficiency. MTAC played a
-                crucial role in organizing and running our safety meetings,
-                which have been instrumental in fostering a culture of safety
-                within our organization. Their approach is not just about
-                meeting compliance requirements; they genuinely care about
-                improving our operations and safeguarding our drivers.
-                Furthermore, with their assistance, we've implemented a
-                comprehensive safety and discipline program tailored
-                specifically for our drivers. This program has not only improved
-                our compliance metrics but also empowered our drivers with the
-                knowledge and tools they need to perform their duties safely and
-                effectively. In essence, MTAC's DOT and FMCSA compliance
-                services have been a game changer for us. Their dedication,
-                expertise, and hands-on approach have enabled us to enhance our
-                safety standards, reduce risks, and maintain compliance with
-                ease. We highly recommend their services to any transportation
-                company serious about improving their safety and compliance
-                performance.
-              </p>
-              <!-- Modal -->
-
-              <div
-                class="modal fade"
-                id="exampleModal4"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel4"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">
-                        Zeisloft
-                        <br />
-                        <small class="fs-6 text-secondary"
-                          >Chuck Zeisloft, Managing Partner</small
-                        >
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      We have been using MTAC's DOT and FMCSA compliance
-                      services for over two years now, and the impact on our
-                      operations has been phenomenal. Thanks to their expert
-                      guidance, our Out-of-Service (OOS) scores have
-                      significantly reduced, which not only enhances our
-                      company's reputation but also ensures we are meeting
-                      industry standards for safety and efficiency. MTAC played
-                      a crucial role in organizing and running our safety
-                      meetings, which have been instrumental in fostering a
-                      culture of safety within our organization. Their approach
-                      is not just about meeting compliance requirements; they
-                      genuinely care about improving our operations and
-                      safeguarding our drivers. Furthermore, with their
-                      assistance, we've implemented a comprehensive safety and
-                      discipline program tailored specifically for our drivers.
-                      This program has not only improved our compliance metrics
-                      but also empowered our drivers with the knowledge and
-                      tools they need to perform their duties safely and
-                      effectively. In essence, MTAC's DOT and FMCSA compliance
-                      services have been a game changer for us. Their
-                      dedication, expertise, and hands-on approach have enabled
-                      us to enhance our safety standards, reduce risks, and
-                      maintain compliance with ease. We highly recommend their
-                      services to any transportation company serious about
-                      improving their safety and compliance performance.
-                    </div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Button trigger modal -->
-            <div
-              class="card-footer d-flex justify-content-center align-items-center"
-            >
-              `
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal4"
-              >
-                See Full Testimony
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-    <button
-      class="carousel-control-prev prev-testimonial"
-      type="button"
-      data-bs-target="#carouselExampleRide2"
-      data-bs-slide="prev"
-    >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button
-      class="carousel-control-next next-testimonial"
-      type="button"
-      data-bs-target="#carouselExampleRide2"
-      data-bs-slide="next"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
 </section>

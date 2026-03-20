@@ -1,84 +1,96 @@
 <%- include('./partials/header') -%>
   <section>
-    <div class="container text-left">
-      <div class="row g-3 mt-3 justify-content-md-center">
-        <div class="col-md-9 col-lg-6">
-          <p class="fs-3 fw-medium">Our Services</p>
-          <ul class="list-group">
-            <li class="list-group-item">US DOT Compliance Services</li>
-            <li class="list-group-item">
-              Safety Audit & Compliance Review Representation
-            </li>
-            <li class="list-group-item">
-              CSA Safety Rating Improvement Strategies
-            </li>
-            <li class="list-group-item">HOS / ELD Regulations</li>
-            <li class="list-group-item">
-              Annual Vehicle Inspections (49 CFR 396)
-            </li>
-            <li class="list-group-item">
-              Post Crash Inspections & Guidance
-            </li>
-            <li class="list-group-item">Driver File Management</li>
-            <li class="list-group-item">Vehicle Maintenance Files</li>
-            <li class="list-group-item">
-              Guidance for USDOT and State Statutes
-            </li>
-            <li class="list-group-item">Data Queries / Challenges</li>
-          </ul>
-        </div>
-        <div class="col-md-9 col-lg-6">
-          <form
-            class="g-3 mx-auto py-3 px-4 border rounded shadow-sm"
-            target="_blank"
-            action="https://formsubmit.co/mtactruckingcompliance@gmail.com"
-            method="POST"
-          >
-            <p class="fs-3 fw-medium">Contact Us</p>
-            <div class="form-floating mb-3">
+    <div
+      class="columns is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd container my-6 is-variable is-8"
+    >
+      <div class="column">
+        <h1 class="title is-2 has-text-dark">Our Services</h1>
+        <table class="table has-background-light has-text-dark is-bordered rounded is-hoverable is-fullwidth">
+          <tbody>
+            <tr>
+              <td>US DOT Compliance Services</td>
+            </tr>
+            <tr>
+              <td>Safety Audit & Compliance Review Representation</td>
+            </tr>
+            <tr>
+              <td>CSA Safety Rating Improvement Strategies</td>
+            </tr>
+            <tr>
+              <td>HOS / ELD Regulations</td>
+            </tr>
+            <tr>
+              <td>Annual Vehicle Inspections (49 CFR 396)</td>
+            </tr>
+            <tr>
+              <td>Post Crash Inspections & Guidance</td>
+            </tr>
+            <tr>
+              <td>Driver File Management</td>
+            </tr>
+            <tr>
+              <td>Vehicle Maintenance Files</td>
+            </tr>
+            <tr>
+              <td>Guidance for USDOT and State Statutes</td>
+            </tr>
+            <tr>
+              <td>Data Queries / Challenges</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        class="column box has-background-white p-5"
+        style="box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;"
+      >
+        <h1 class="title is-2 has-text-dark">Contact Us</h1>
+        <form
+          target="_blank"
+          action="https://formsubmit.co/mtactruckingcompliance@gmail.com"
+          method="POST"
+        >
+          <div class="field">
+            <p class="control">
               <input
+                class="input is-medium has-background-light has-text-dark"
                 type="text"
                 name="user_name"
-                class="form-control"
-                id="floatingInput"
-                placeholder="John Doe"
+                placeholder="User Name (e.g. John Doe)"
                 required
               />
-              <label for="floatingInput">Full name</label>
-            </div>
-            <div class="form-floating mb-3">
+            </p>
+          </div>
+          <div class="field">
+            <p class="control">
               <input
+                class="input is-medium has-background-light has-text-dark"
                 type="email"
                 name="email"
-                class="form-control"
-                id="floatingInputTwo"
-                placeholder="johndoe@gmail.com"
+                placeholder="Email"
                 required
               />
-              <label for="floatingInput">Email address</label>
+            </p>
+          </div>
+          <div class="field">
+            <div class="control">
+              <textarea
+                name="message"
+                class="textarea has-background-light has-text-dark"
+                placeholder="Explain how we can help you"
+                rows="9"
+                required
+              ></textarea>
             </div>
-            <div class="col-12 mb-3">
-              <div class="form-floating">
-                <textarea
-                  name="message"
-                  class="form-control"
-                  placeholder="Enter a message"
-                  id="floatingTextarea2"
-                  style="height: 173px"
-                  required
-                ></textarea>
-                <label for="floatingTextarea2">Message</label>
-              </div>
-            </div>
-            <div
-              class="col-12 d-flex justify-content-center align-items-center"
-            >
-              <button type="submit" class="btn btn-primary w-100">
+          </div>
+          <div class="field">
+            <div class="control">
+              <button type="submit" class="button is-warning is-fullwidth is-medium">
                 Submit
               </button>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   </section>
