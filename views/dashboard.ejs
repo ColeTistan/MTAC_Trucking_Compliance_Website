@@ -1,101 +1,132 @@
 <%- include('./partials/header') %>
 <section>
-  <div class="container">
-    <div class="d-flex justify-content-between align-items-center pb-2">
-      <p class="fs-2 align-left m-0">Dashboard</p>
-      <a href="/news/create" class="btn btn-outline-secondary">Add Article</a>
+  <div class="container py-5">
+    <!-- Header remains the same -->
+    <div class="is-flex is-justify-content-space-between is-align-items-center mb-4">
+      <p class="is-size-3">Dashboard</p>
+      <a href="/news/create" class="button is-warning">Add Article</a>
     </div>
-    <% if (successMessage && successMessage.length > 0) { %>
-    <div
-      class="alert alert-<%= successMessage[1] %> alert-dismissible fade show"
-      role="alert"
-    >
-      <%= successMessage[0] %>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"
-      ></button>
-    </div>
-    <% } %>
-    <table class="table table-striped align-middle shadow-sm">
-      <thead class="table-dark">
-        <tr>
-          <th scope="col">Article #</th>
-          <th scope="col">Article Title</th>
-          <th scope="col">Article Description</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% articles.forEach((article) => { %>
-        <tr>
-          <th scope="row"><%= article.id %></th>
-          <td class="text-truncate"><%= article.title %></td>
-          <td class="text-truncate"><%= article.description %></td>
-          <td>
-            <a href="/news/update/<%= article.id %>" class="btn btn-sm btn-info"
-              ><img src="img/pencil-square.svg" alt="edit"
-            /></a>
-            <!-- Todo - add modal to prompt user with are you sure? -->
-            <button
-              type="button"
-              class="btn btn-sm btn-danger"
-              data-bs-toggle="modal"
-              data-bs-target="#deleteModal<%= article._id %>"
-            >
-              <img src="img/trash3-fill.svg" alt="delete" />
-            </button>
-            <div
-              class="modal fade text-dark"
-              id="deleteModal<%= article._id %>"
-              tabindex="-1"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header bg-danger text-light">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">
-                      Delete Confirmation
-                    </h1>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body">
-                    Are you sure you want to delete this article? This action
-                    cannot be undone once deleted.
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <form
-                      action="/news/delete/<%= article.id %>?_method=DELETE"
-                      method="POST"
-                    >
-                      <button type="submit" class="btn btn-danger">
-                        Delete
-                      </button>
-                    </form>
+
+    <!-- Desktop/Tablet Table View -->
+    <div class="is-hidden-mobile">
+      <div class="table-container">
+        <table class="table is-fullwidth is-hoverable" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% articles.forEach((article) => { %>
+            <tr>
+              <td><%= article.id %></td>
+              <td><%= article.title %></td>
+              <td><%= article.description %></td>
+              <td>
+                <div class="buttons are-small">
+                  <a href="/news/update/<%= article.id %>" class="button is-info is-small">
+                    <img src="img/pencil-square.svg" alt="edit" style="width: 16px; height: 16px;" />
+                  </a>
+                  <button class="button is-danger is-small js-modal-trigger" data-target="deleteModal<%= article._id %>">
+                    <img src="img/trash3-fill.svg" alt="delete" style="width: 16px; height: 16px;" />
+                  </button>
+                </div>
+                <div id="deleteModal<%= article._id %>" class="modal">
+                  <div class="modal-card">
+                    <header class="modal-card-head has-background-danger mb-0">
+                      <p class="modal-card-title has-text-white">
+                        Delete Confirmation
+                      </p>
+                      <button class="delete" aria-label="close"></button>
+                    </header>
+                    <section class="modal-card-body">
+                      <p class="content">
+                        Are you sure you want to delete this article?
+                        This action cannot be undone once deleted.
+                      </p>
+                    </section>
+                    <footer class="modal-card-foot">
+                      <div class="buttons">
+                        <button class="button" type="button">Cancel</button>
+                        <form
+                          action="/news/delete/<%= article.id %>?_method=DELETE"
+                          method="POST"
+                          style="display: inline;"
+                        >
+                          <button type="submit" class="button is-danger">
+                            Delete
+                          </button>
+                        </form>
+                      </div>
+                    </footer>
                   </div>
                 </div>
-              </div>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Mobile Card View -->
+    <div class="is-hidden-tablet">
+      <% articles.forEach((article) => { %>
+      <div class="card mb-4">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-6">#<%= article.id %> - <%= article.title %></p>
+              <p class="subtitle is-7 has-text-grey"><%= article.description %></p>
             </div>
-          </td>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table>
+          </div>
+        </div>
+        <footer class="card-footer">
+          <a href="/news/update/<%= article.id %>" class="card-footer-item button is-info">
+            Edit
+          </a>
+          <button class="card-footer-item button is-danger js-modal-trigger" data-target="deleteModal<%= article._id %>">
+            Delete
+          </button>
+        </footer>
+
+        <!-- Modal for each article -->
+        <div id="deleteModal<%= article._id %>" class="modal">
+          <div class="modal-background"></div>
+          <div class="modal-card">
+            <header class="modal-card-head has-background-danger">
+              <p class="modal-card-title has-text-white">
+                Delete Confirmation
+              </p>
+              <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+              <p class="content">
+                Are you sure you want to delete this article? This action cannot be undone once deleted.
+              </p>
+            </section>
+            <footer class="modal-card-foot">
+              <div class="buttons">
+                <button class="button" type="button">Cancel</button>
+                <form
+                  action="/news/delete/<%= article.id %>?_method=DELETE"
+                  method="POST"
+                  style="display: inline;"
+                >
+                  <button type="submit" class="button is-danger">
+                    Delete Article
+                  </button>
+                </form>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <% }); %>
+    </div>
   </div>
 </section>
 <%- include('./partials/footer') %>

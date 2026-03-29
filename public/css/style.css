@@ -14,6 +14,23 @@ header {
   margin-bottom: 80px;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease;
+}
+
+.modal.is-active {
+  display: block;
+}
+
 .navbar-nav .nav-item .nav-link:hover,
 .link-light:hover  {
   color: #ffc000;
@@ -301,10 +318,51 @@ header {
   .column {
     padding: 0.75rem;
   }
+
+  /* Dashboard-specific button styling only */
+  .card-footer-item.button {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0.375rem !important;
+    border-bottom-right-radius: 0.375rem !important;
+  }
+
+  /* Specifically target dashboard buttons */
+  .table .button {
+    border-radius: 0 !important;
+  }
+  
+  /* Target buttons inside dashboard mobile cards specifically */
+  .is-hidden-tablet .card .button {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0.375rem !important;
+    border-bottom-right-radius: 0.375rem !important;
+  }
 }
 
 /* Mobile specific adjustments */
 @media screen and (max-width: 768px) {
+  /* Dashboard-specific button styling only */
+  .table .button {
+    border-radius: 0 !important;
+  }
+  
+  .card-footer-item.button {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0.375rem !important;
+    border-bottom-right-radius: 0.375rem !important;
+  }
+  
+  /* Target mobile dashboard card buttons specifically */
+  .is-hidden-tablet .card .button {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0.375rem !important;
+    border-bottom-right-radius: 0.375rem !important;
+  }
+
   .container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
